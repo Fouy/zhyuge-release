@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="ua-mac ua-webkit">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="renderer" content="webkit">
+<meta name="referrer" content="always">
+<meta name="uyan_auth" content="759eb15c0e">
+<title>章鱼哥电影</title>
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="keywords" content="章鱼哥,猫爪,电影,经典电影,资源,下载,迅雷下载,排行,电影推荐,影视大全">
+<meta name="description" content="喵抓电影提供最新的电影下载地址以及热门、高分、好玩的电影推荐,无论您喜欢哪种类型,章鱼哥电影都会定期给你推荐哦。">
+<link rel="apple-touch-icon" href="/images/favicon.png">
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="/js/jquery.min.js"></script>
+<script type="text/javascript"></script>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+
+<link rel="stylesheet" href="/css/index.css">
+<script src="/js/jquery.tmpl.min.js"></script>
+
+<script id="mv_1" type="text/x-jquery-tmpl">
+	<li id="${id}" class="list-item">
+		<ul class="">
+			<li class="poster">
+				<a href="/detail/${id}" class="ticket-btn" target="_blank">
+					<img src="/static/poster/m/${id}.jpg" alt="${title}" rel="nofollow" >
+				</a>
+				<span class="right-cornor-tag">${show_time}</span>
+			</li>
+			<li class="stitle">
+				<a href="/detail/${id}" class="ticket-btn" target="_blank">${title}</a>
+			</li>
+			<li class="srating">
+				<span class="text-tip">暂无评分</span>
+			</li>
+		</ul>
+	</li>
+</script>
+
+<script id="mv_2" type="text/x-jquery-tmpl">
+	<li id="${id}" class="list-item">
+		<ul class="">
+			<li class="poster">
+				<a href="/detail/${id}" class="ticket-btn" target="_blank">
+					<img src="/static/poster/m/${id}.jpg" alt="${title}" rel="nofollow" >
+				</a>
+				<span class="right-cornor-tag">${show_time}</span>
+			</li>
+			<li class="stitle">
+				<a href="/detail/${id}" class="ticket-btn" target="_blank">${title}</a>
+			</li>
+			<li class="srating">
+				<span class="rating-star allstar${rating}"></span>&nbsp;
+				<span class="subject-rate">${douban_score}</span>
+			</li>
+		</ul>
+	</li>
+</script>
+
+<script id="rand_items" type="text/x-jquery-tmpl">
+	<li class="cinema-item">
+		<p style="font-size:13px; margin:5px 0">
+			<a href="/detail/${id}" target="_blank">
+			${title} [<font color="#00a1d6">${douban_score}</font>] [${area}] [${product_year}] [${types}]
+			</a>
+		</p>
+	</li>
+</script>
+
+<script>
+// 加载更多
+var pn = 1;
+function load_data(){
+	$.get("/latest_json?pn="+pn, function(data, status){
+		$("#more_btn").html("加载中...");
+		data = eval(data);
+		for (i = 0; i < data.length; i++) {
+			if (data[i].douban_score == null){
+				$("#mv_1").tmpl(data[i]).appendTo('#latest');
+			} else {
+				$("#mv_2").tmpl(data[i]).appendTo('#latest');
+			}
+		}
+		if (data.length < 20 || pn > 10) {
+			$("#more_btn").hide();
+		} else {
+			$("#more_btn").html("加载更多");
+		}
+	});
+	pn += 1;
+}
+
+var rand_pn = 2;
+function rand_mvs(){
+	$.get("/rand_mvs?pn="+rand_pn, function(data, status){
+		data = eval(data);
+		$('#rand_mvs').empty();
+		for (i = 0; i < data.length; i++) {
+			$("#rand_items").tmpl(data[i]).appendTo('#rand_mvs');
+		}
+	});
+	rand_pn += 1;
+}
+
+// 设置本页标签选中
+$(document).ready(function(){
+	$("#index").addClass("current");
+	load_data();
+});
+
+// 设置排行榜切换
+function switch_rank(target) {
+	$("#rank_day").hide();
+	$("#rank_week").hide();
+	$("#rank_month").hide();
+	$("#btn_day").removeClass();
+	$("#btn_week").removeClass();
+	$("#btn_month").removeClass();
+	if (target == 0) {
+		$("#rank_day").show();
+		$("#btn_day").addClass("hover");
+	} else if (target == 1) {
+		$("#rank_week").show();
+		$("#btn_week").addClass("hover");
+	} else {
+		$("#rank_month").show();
+		$("#btn_month").addClass("hover");
+	}
+}
+</script>
+
+</head>
+<body>
+	
+	{(header.html)}
+
+	<div id="wrapper">
+
+		<div id="content">
+			<div class="grid-16-8 clearfix">
+				<div class="article">
+					<div id="nowplaying">
+						<div class="mod-hd">
+							<script type="text/javascript" src="./章鱼哥电影_files/o.php"></script>
+						</div>
+						<div class="mod-hd">
+							<h2>近期热门</h2>
+						</div>
+						<div class="mod-bd">
+							<ul class="lists">
+
+								<li id="10907" class="list-item">
+									<ul>
+										<li class="poster"><a
+											href="http://www.miao-z.com/detail/10907" class="ticket-btn"
+											target="_blank"> <img src="./章鱼哥电影_files/10907.jpg"
+												alt="言叶之庭" rel="nofollow">
+										</a></li>
+										<li class="stitle"><a
+											href="http://www.miao-z.com/detail/10907" class="ticket-btn"
+											target="_blank">言叶之庭</a></li>
+
+										<li class="srating"><span class="rating-star allstar45"></span>&nbsp;
+											<span class="subject-rate">8.2</span></li>
+
+									</ul>
+								</li>
+
+								<li id="14056" class="list-item">
+									<ul>
+										<li class="poster"><a
+											href="http://www.miao-z.com/detail/14056" class="ticket-btn"
+											target="_blank"> <img src="./章鱼哥电影_files/14056.jpg"
+												alt="星际特工：千星之城" rel="nofollow">
+										</a></li>
+										<li class="stitle"><a
+											href="http://www.miao-z.com/detail/14056" class="ticket-btn"
+											target="_blank">星际特工：千星之城</a></li>
+
+										<li class="srating"><span class="rating-star allstar40"></span>&nbsp;
+											<span class="subject-rate">7.1</span></li>
+
+									</ul>
+								</li>
+
+								<li id="16702" class="list-item">
+									<ul>
+										<li class="poster"><a
+											href="http://www.miao-z.com/detail/16702" class="ticket-btn"
+											target="_blank"> <img src="./章鱼哥电影_files/16702.jpg"
+												alt="战栗空间" rel="nofollow">
+										</a></li>
+										<li class="stitle"><a
+											href="http://www.miao-z.com/detail/16702" class="ticket-btn"
+											target="_blank">战栗空间</a></li>
+
+										<li class="srating"><span class="rating-star allstar40"></span>&nbsp;
+											<span class="subject-rate">7.1</span></li>
+
+									</ul>
+								</li>
+
+								<li id="30929" class="list-item">
+									<ul>
+										<li class="poster"><a
+											href="http://www.miao-z.com/detail/30929" class="ticket-btn"
+											target="_blank"> <img src="./章鱼哥电影_files/30929.jpg"
+												alt="小丑回魂" rel="nofollow">
+										</a></li>
+										<li class="stitle"><a
+											href="http://www.miao-z.com/detail/30929" class="ticket-btn"
+											target="_blank">小丑回魂</a></li>
+
+										<li class="srating"><span class="rating-star allstar40"></span>&nbsp;
+											<span class="subject-rate">7.6</span></li>
+
+									</ul>
+								</li>
+
+							</ul>
+						</div>
+						<div class="mod-hd">
+							<h2>最新更新</h2>
+						</div>
+						<div class="mod-bd">
+							<ul class="lists" id="latest">
+								{% for i, v in ipairs(list) do %} 
+								<li id="{* v.movie_id *}" class="list-item">
+									<ul class="">
+										<li class="poster">
+											<a href="/movie/detail?movieId={* v.movie_id *}" class="ticket-btn" target="_blank"> 
+												<img src="{* v.logo_url *}" alt="{* v.name *}" rel="nofollow">
+											</a> 
+											<span class="right-cornor-tag">{* v.release_date *}</span>
+										</li>
+										<li class="stitle">
+											<a href="http://www.miao-z.com/detail/14056" class="ticket-btn" target="_blank">{* v.name *}</a>
+										</li>
+										<li class="srating">
+											<span class="rating-star allstar40"></span>&nbsp;
+											<span class="subject-rate">{* v.score *}</span>
+										</li>
+									</ul>
+								</li>
+						      	{% end %}
+
+							</ul>
+							<a id="more_btn" href="javascript:load_data();">加载更多</a>
+						</div>
+					</div>
+				</div>
+				
+				{(aside.html)}
+
+			</div>
+		</div>
+
+		{(footer.html)}
+
+	</div>
+	
+
+</body>
+</html>

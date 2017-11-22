@@ -1,0 +1,230 @@
+h2 {
+    border-bottom: 1px solid #00a1d6;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+#nowplaying .list-item ul, #upcoming .list-item ul {
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+#nowplaying .mod-bd .lists, #upcoming .mod-bd .lists {
+    letter-spacing: -0.31em;
+    margin-left: -26px;
+}
+
+.chart-item .mod-bd {
+	display:none
+}
+
+.chart-item .mod-bd .sbtn {
+	display:block;
+	background-color:#268DCD;
+	border-radius:2px;
+	color:#fff;
+	height:24px;
+	line-height:24px;
+	padding:0 10px;
+	text-align:center;
+	margin-top:8px;
+	float:right
+}
+
+.chart-item .mod-bd p {
+	padding-left:21px;
+	color:#aaa;
+	font-size:13px
+}
+
+.chart-item .mod-bd .subject-rate {
+	color:#E82100
+}
+
+.chart-item .mod-bd em {
+	font-size:15px
+}
+
+.list-item .sbtn a,.chart-item .mod-bd .sbtn {
+	color:#494949;
+	border:1px solid #d9d9d9;
+	border-radius:2px;
+	background:#F3F3F3;
+	background:-moz-linear-gradient(top, #F3F3F3, #ECECEC);
+	background:-webkit-gradient(linear, 0 0, 0 bottom, from(#F3F3F3), to(#ECECEC));
+	background:-o-linear-gradient(top, #F3F3F3, #ECECEC)
+}
+
+.list-item .sbtn a:hover,.chart-item .mod-bd .sbtn:hover {
+	background:#EBEBEB
+}
+
+.movie_ranking_wrap {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.movie_ranking_wrap ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.movie_ranking_time {
+    line-height: 50px;
+    display: block!important;
+    padding-bottom: 2px!important;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.tab_wrap {
+    width: 310px;
+    height: auto;
+}
+
+.tab_nav {
+    width: auto;
+    height: 45px;
+    padding-left: 0;
+    margin: 0;
+    float: right;
+}
+
+.movie_ranking_tille {
+    color: #999;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 8px 0 0 0;
+    border: none!important;
+}
+
+.movie_ranking_tille a {
+    margin-left: 10px;
+}
+
+
+.tab_nav>li.hover {
+    background: #ff8000;
+    color: #fff;
+}
+
+tab_nav>li:first-child {
+    margin-left: 0;
+}
+
+.tab_nav>li {
+    list-style: none;
+    float: left;
+    padding: 0 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 28px;
+    height: 26px;
+}
+
+.tab_view {
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+}
+
+.view_1 li {
+    list-style: none;
+    border-bottom: 1px dashed #ddd;
+    height: auto;
+    overflow: hidden;
+}
+
+movie_ranking_wrap .ranking_btn {
+    float: right;
+    padding: 0 8px;
+    border: 2px solid #d9d9d9;
+    border-radius: 2px;
+    margin: 8px 5px 0 0;
+    height: 24px;
+    line-height: 24px;
+    background: -moz-linear-gradient(top,#f3f3f3,#ececec);
+    background: -webkit-gradient(linear,0 0,0 bottom,from(#f3f3f3),to(#ececec));
+    background: -o-linear-gradient(top,#f3f3f3,#ececec);
+    color: #494949;
+}
+
+.view_1 li .text {
+    width: auto;
+    height: auto;
+    float: left;
+    margin-left: 20px;
+    display: none;
+}
+
+.view_1 li .text p {
+    margin: 0;
+    line-height: 22px;
+    width: 290px;
+    font-size: 13px;
+}
+
+.view_1 li .text p:last-child {
+    margin-bottom: 5px;
+    color: #aaa;
+}
+
+span.subject-rate, .rate, .subject-rating {
+    color: #e09015;
+}
+
+.cinema-item p span {
+    color: #aaa;
+    font-size: 12px;
+}
+
+#cinemas-section {
+    font-size: 12px;
+}
+
+.list_source {
+    height: 35px;
+    line-height: 35px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+#more_btn {
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    font-size: 14px;
+    background: #e7e7e7;
+    margin-top:10px;
+    color: #27a;
+}
+
+#more_btn:hover {
+    color: #37a;
+    text-decoration: none;
+    background: #f0f0f0;
+}
+
+.no {
+    width: 20px;
+    float: left;
+    width: 15px;
+    font-size: 12px;
+    text-align: center;
+    color: #111;
+    margin-right: 10px;
+}
+
+.no_top {
+    color: #fff;
+    background: #fd4c5d;
+    border-radius: 3px;
+}
+
+a.more {
+    float: right;
+    font-size: 13px;
+    color: #FF7C24;
+}

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://www.miao-z.com/list -->
+<html lang="zh-cmn-Hans" class="ua-mac ua-webkit">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="renderer" content="webkit">
+<meta name="referrer" content="always">
+<meta name="uyan_auth" content="759eb15c0e">
+<meta name="baidu-site-verification" content="feKHyIXTS5">
+<title>喵爪电影片库</title>
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="keywords" content="喵爪,猫爪,电影,经典电影,资源,下载,迅雷下载,排行,电影推荐,影视大全">
+<meta name="description"
+	content="喵抓电影提供最新的电影下载地址以及热门、高分、好玩的电影推荐,无论您喜欢哪种类型,喵爪电影都会定期给你推荐哦。">
+<link rel="apple-touch-icon"
+	href="http://www.miao-z.com/static/portal/img/favicon.png">
+<link href="./喵爪电影片库_files/main.css" rel="stylesheet" type="text/css">
+
+<script src="./喵爪电影片库_files/jquery.min.js"></script>
+<script type="text/javascript"></script>
+<link rel="shortcut icon"
+	href="http://www.miao-z.com/static/portal/img/favicon.png"
+	type="image/x-icon">
+
+<link rel="stylesheet" href="./喵爪电影片库_files/list.css">
+<script>
+	var tp = '0';
+	var tag = '';
+	var area = '';
+	var py = '';
+	var sr = '1';
+	var sort = '1';
+	function choose_tp(n_tp) {
+		tp = n_tp;
+		redirect();
+	}
+	function choose_tag(n_tag) {
+		tag = n_tag;
+		redirect();
+	}
+	function choose_area(n_area) {
+		area = n_area;
+		redirect();
+	}
+	function choose_py(n_py) {
+		py = n_py;
+		redirect();
+	}
+	function choose_sr(n_sr) {
+		sr = n_sr;
+		redirect();
+	}
+	function choose_sort(n_sort) {
+		sort = n_sort;
+		redirect();
+	}
+	function redirect() {
+		window.location.href = '/list/' + tp + '-' + tag + '-' + area + '-'
+				+ py + '-' + sr + '-' + sort + '.html';
+	}
+	$(document).ready(function() {
+		$("#list").addClass("current");
+	});
+</script>
+
+</head>
+<body>
+	<div id="db-nav-movie" class="nav">
+		<div class="nav-wrap" style="padding-top: 10px;">
+			<div class="nav-primary">
+				<div class="nav-logo">
+					<a href="http://www.miao-z.com/"><img
+						src="./喵爪电影片库_files/logo.png"
+						style="width: 120px; height: 27px; margin-top: 12px;"></a>
+				</div>
+				<div class="nav-search">
+					<form action="http://www.miao-z.com/so" method="get">
+						<fieldset>
+							<input id="inp-query" name="q" size="22" maxlength="60" value=""
+								placeholder="电影、电视剧、演员、导演" autocomplete="off">
+							<button class="search-btn" type="submit" value="搜索"></button>
+						</fieldset>
+					</form>
+					<div class="star-search-tag">
+						<span class="hot-words" id="hws"><a class="hw"
+							href="http://www.miao-z.com/so?q=%E7%8C%A9%E7%90%83%E5%B4%9B%E8%B5%B7">猩球崛起</a><a
+							class="hw"
+							href="http://www.miao-z.com/so?q=%E8%A5%BF%E6%B8%B8%E4%BC%8F%E5%A6%96%E7%AF%87">西游伏妖篇</a><a
+							class="hw" href="http://www.miao-z.com/so?q=%E9%95%BF%E5%9F%8E">长城</a><a
+							class="hw"
+							href="http://www.miao-z.com/so?q=%E6%88%91%E7%9A%84%E5%89%8D%E5%8D%8A%E7%94%9F">我的前半生</a><a
+							class="hw"
+							href="http://www.miao-z.com/so?q=%E5%BC%82%E5%BD%A2%EF%BC%9A%E5%A5%91%E7%BA%A6">异形：契约</a><a
+							class="hw"
+							href="http://www.miao-z.com/so?q=%E5%88%BA%E5%AE%A2%E4%BF%A1%E6%9D%A1">刺客信条</a><a
+							class="hw"
+							href="http://www.miao-z.com/so?q=%E7%94%9F%E5%8C%96%E5%8D%B1%E6%9C%BA%EF%BC%9A%E7%BB%88%E7%AB%A0">生化危机：终章</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nav-sub-items">
+			<div class="nav-secondary">
+				<div class="nav-items nav-anon">
+					<ul>
+						<li><div id="index">
+								<a href="http://www.miao-z.com/">首页</a>
+							</div></li>
+						<li><div id="list" class="current">
+								<a href="http://www.miao-z.com/list">片库</a>
+							</div></li>
+						<li><div id="chart">
+								<a href="http://www.miao-z.com/chart">排行榜</a>
+							</div></li>
+						<li><div id="recs">
+								<a href="http://www.miao-z.com/recs">专辑</a>
+							</div></li>
+						<li><div id="tv">
+								<a href="http://www.miao-z.com/tv">电视剧</a>
+							</div></li>
+						<li><div id="topic">
+								<a href="http://www.miao-z.com/topic">叽里呱啦</a>
+							</div></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="wrapper">
+
+		<div id="content">
+			<div class="grid-16-8 clearfix">
+				<div class="article">
+					<div class="condition">
+						<div class="item_box">
+							<span class="tip">分&nbsp;&nbsp;类&nbsp;&nbsp;|</span> <a
+								style="color: #00a1d6;" href="javascript:choose_tp(&#39;0&#39;)">电影</a>
+							<a href="javascript:choose_tp(&#39;1&#39;)">电视剧</a>
+						</div>
+						<div class="item_box">
+							<span class="tip">类&nbsp;&nbsp;型&nbsp;&nbsp;|</span> <a
+								style="color: #00a1d6;" href="javascript:choose_tag(&#39;&#39;)">全部</a>
+							<a href="javascript:choose_tag(&#39;1&#39;)">爱情</a> <a
+								href="javascript:choose_tag(&#39;2&#39;)">喜剧</a> <a
+								href="javascript:choose_tag(&#39;3&#39;)">动画</a> <a
+								href="javascript:choose_tag(&#39;4&#39;)">剧情</a> <a
+								href="javascript:choose_tag(&#39;5&#39;)">科幻</a> <a
+								href="javascript:choose_tag(&#39;6&#39;)">动作</a> <a
+								href="javascript:choose_tag(&#39;7&#39;)">悬疑</a> <a
+								href="javascript:choose_tag(&#39;8&#39;)">犯罪</a> <a
+								href="javascript:choose_tag(&#39;9&#39;)">惊悚</a> <a
+								href="javascript:choose_tag(&#39;10&#39;)">恐怖</a> <a
+								href="javascript:choose_tag(&#39;11&#39;)">战争</a> <a
+								href="javascript:choose_tag(&#39;12&#39;)">情色</a> <a
+								href="javascript:choose_tag(&#39;13&#39;)">音乐</a>
+						</div>
+						<div class="item_box">
+							<span class="tip">地&nbsp;&nbsp;区&nbsp;&nbsp;|</span> <a
+								style="color: #00a1d6;"
+								href="javascript:choose_area(&#39;&#39;)">全部</a> <a
+								href="javascript:choose_area(&#39;1&#39;)">中国</a> <a
+								href="javascript:choose_area(&#39;2&#39;)">美国</a> <a
+								href="javascript:choose_area(&#39;3&#39;)">英国</a> <a
+								href="javascript:choose_area(&#39;4&#39;)">日本</a> <a
+								href="javascript:choose_area(&#39;5&#39;)">韩国</a> <a
+								href="javascript:choose_area(&#39;6&#39;)">法国</a>
+						</div>
+						<div class="item_box">
+							<span class="tip">年&nbsp;&nbsp;份&nbsp;&nbsp;|</span> <a
+								style="color: #00a1d6;" href="javascript:choose_py(&#39;&#39;)">全部</a>
+							<a href="javascript:choose_py(&#39;2016&#39;)">2016</a> <a
+								href="javascript:choose_py(&#39;2015&#39;)">2015</a> <a
+								href="javascript:choose_py(&#39;2014&#39;)">2014</a> <a
+								href="javascript:choose_py(&#39;2013&#39;)">2013</a> <a
+								href="javascript:choose_py(&#39;2012&#39;)">2012</a> <a
+								href="javascript:choose_py(&#39;2011&#39;)">2011</a> <a
+								href="javascript:choose_py(&#39;2010&#39;)">2010</a> <a
+								href="javascript:choose_py(&#39;2009&#39;)">2009</a> <a
+								href="javascript:choose_py(&#39;2008&#39;)">2008</a> <a
+								href="javascript:choose_py(&#39;2007&#39;)">2007</a> <a
+								href="javascript:choose_py(&#39;2006&#39;)">2006</a>
+						</div>
+						<div class="item_box">
+							<span class="tip">资&nbsp;&nbsp;源&nbsp;&nbsp;|</span> <a
+								href="javascript:choose_sr(&#39;0&#39;)">全部</a> <a
+								style="color: #00a1d6;" href="javascript:choose_sr(&#39;1&#39;)">可下载</a>
+						</div>
+					</div>
+					<div>
+						<div style="float: right; margin-bottom: 5px;">
+
+							<a style="color: #00a1d6" href="javascript:choose_sort(1)">按更新时间排序</a>&nbsp;&nbsp;/&nbsp;&nbsp;
+							<a href="javascript:choose_sort(2)">按评分排序</a>
+						</div>
+					</div>
+					<div class="">
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63329" title="沉睡"
+										target="_blank"> <img src="./喵爪电影片库_files/63329.jpg"
+											alt="沉睡" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63329" target="_blank"
+												class=""> <span style="font-size: 13px;"> 沉睡 / 停滞
+													/ 停滞的命运 </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-06-02(台湾) ◎类型: 科幻 ◎国家: 美国 <br> ◎导演:
+												妮科尔·琼斯狄翁 ◎主演: Anna Harr,Mark Grossman,Phyllis Spielman
+											</p>
+											<div class="star clearfix">
+
+												<span class="rating_nums">暂无评分</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/14056" title="星际特工：千星之城"
+										target="_blank"> <img src="./喵爪电影片库_files/14056.jpg"
+											alt="星际特工：千星之城" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/14056" target="_blank"
+												class=""> <span style="font-size: 13px;">
+													星际特工：千星之城 / 瓦莱里安与一千颗行星的城市 / 星际特工瓦雷诺：千星之城(台) / 瓦莱里安与千星之城 /
+													Valérian / Valerian </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-08-25(中国大陆) ◎类型: 动作,科幻,冒险 ◎国家: 法国 <br> ◎导演:
+												吕克·贝松 ◎主演: 戴恩·德哈恩,卡拉·迪瓦伊,克里夫·欧文,蕾哈娜,伊桑·霍克,赫比·汉考克,吴亦凡,萨姆·斯普卢尔
+												,阿兰·夏巴,鲁特格尔·哈尔,泽维尔·吉亚诺利,约翰·古德曼,山姆·道格拉斯
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar40"></span> <span class="rating_nums">7.1</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/61606" title="梦中人"
+										target="_blank"> <img src="./喵爪电影片库_files/61606.jpg"
+											alt="梦中人" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/61606" target="_blank"
+												class=""> <span style="font-size: 13px;"> 梦中人 /
+													梦中美人 / The Beauty in Dream </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2002-04-05(韩国) ◎类型: 剧情,爱情 ◎国家: 韩国 <br> ◎导演: 李璟荣
+												◎主演: 夏希罗,李璟荣,郑仁善,宋在浩
+											</p>
+											<div class="star clearfix">
+
+												<span class="rating_nums">暂无评分</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63326" title="镜头前的女人"
+										target="_blank"> <img src="./喵爪电影片库_files/63326.jpg"
+											alt="镜头前的女人" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63326" target="_blank"
+												class=""> <span style="font-size: 13px;"> 镜头前的女人
+													/ Nude Love </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-10-20(中国大陆) ◎类型: 剧情,爱情 ◎国家: 中国大陆 <br> ◎导演:
+												朱卫 ◎主演: 程慕轩 ,王弘尧,刘思维 ,班京辉 ,刘颖君
+											</p>
+											<div class="star clearfix">
+
+												<span class="rating_nums">暂无评分</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63327" title="魔衣"
+										target="_blank"> <img src="./喵爪电影片库_files/63327.jpg"
+											alt="魔衣" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63327" target="_blank"
+												class=""> <span style="font-size: 13px;"> 魔衣 </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-10-25(中国大陆) ◎类型: 剧情,奇幻 ◎国家: 中国大陆 <br> ◎导演:
+												屈小超 、邓棋天 ◎主演: 廖越,颜瑞,温志强,魏博仁,吕思含,徐督
+											</p>
+											<div class="star clearfix">
+
+												<span class="rating_nums">暂无评分</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63325" title="追击"
+										target="_blank"> <img src="./喵爪电影片库_files/63325.jpg"
+											alt="追击" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63325" target="_blank"
+												class=""> <span style="font-size: 13px;"> 追击 /
+													都柏林教父(港) / 追踪 </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-09-15(中国大陆) ◎类型: 动作,犯罪 ◎国家: 爱尔兰 <br> ◎导演:
+												保罗·名士 ◎主演: 露丝·布莱德利,布莱丹·格里森,巴里·沃德,欧文·沃尔,利亚姆·坎宁安,唐·威彻利
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar35"></span> <span class="rating_nums">6.3</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63324" title="丛林"
+										target="_blank"> <img src="./喵爪电影片库_files/63324.jpg"
+											alt="丛林" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63324" target="_blank"
+												class=""> <span style="font-size: 13px;"> 丛林 /
+													丛林炼狱(台) </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-10-20(美国) ◎类型: 剧情,冒险 ◎国家: 澳大利亚 / 哥伦比亚 <br>
+												◎导演: 克瑞格·麦克林恩 ◎主演:
+												丹尼尔·雷德克里夫,托马斯·克莱舒曼,亚历克斯·罗素,莉莉·沙利文,杰克·科曼,Angie
+												Milliken,Yasmin Kassim
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar35"></span> <span class="rating_nums">6.7</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/30929" title="小丑回魂"
+										target="_blank"> <img src="./喵爪电影片库_files/30929.jpg"
+											alt="小丑回魂" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/30929" target="_blank"
+												class=""> <span style="font-size: 13px;"> 小丑回魂 /
+													它(台) </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-08-29(伦敦恐怖电影节) ◎类型: 恐怖 ◎国家: 美国 <br> ◎导演:
+												安德斯·穆斯切蒂 ◎主演:
+												杰顿·李博赫,杰里米·雷·泰勒,索菲娅·利利斯,菲恩·伍法德,俦森·雅可布,杰克·迪伦·格雷泽,瓦耶特·奥莱夫,比尔·斯卡斯加德,尼古拉斯·汉密尔顿,杰克·辛,洛根·汤普森,欧文·泰格,杰克逊·罗伯特·斯科特,斯蒂夫·博加尔特,斯图尔特·休斯,杰弗里·庞塞特,皮普·德怀尔,莫莉·阿特金森,史蒂文·威廉姆斯,伊丽莎白·桑德斯,梅根·查彭提尔,安东尼·尤埃西,哈维尔·博泰特,伊莎贝尔·内利瑟,尼尔·克容
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar40"></span> <span class="rating_nums">7.6</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63320" title="忌日快乐"
+										target="_blank"> <img src="./喵爪电影片库_files/63320.jpg"
+											alt="忌日快乐" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63320" target="_blank"
+												class=""> <span style="font-size: 13px;"> 忌日快乐 /
+													吓到半死 / 死亡无限LOOP(港) / Again / Half to Death </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-10-13(美国) ◎类型: 悬疑,惊悚,恐怖 ◎国家: 美国 <br> ◎导演:
+												克里斯托弗·兰登 ◎主演:
+												杰西卡·罗德,伊瑟尔·布罗萨德,露比·莫迪恩,查尔斯·艾特肯,劳拉·克利夫顿,杰森·拜尔,罗布·梅洛,瑞秋·马休斯,拉姆齐·安德森,布雷迪·刘易斯,飞·武,泰内娅·英崔亚勾,布莱恩·克恩,卡瑞尔拉·史密斯,吉米·冈萨雷斯,比利·斯洛特,唐娜·杜普兰提尔,吉吉·埃内塔,林赛·G.史密斯,戴恩·罗兹,凯莱布·斯比尔亚兹,蜜西·雅格
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar40"></span> <span class="rating_nums">7.2</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63313" title="虚拟实惊"
+										target="_blank"> <img src="./喵爪电影片库_files/63313.jpg"
+											alt="虚拟实惊" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63313" target="_blank"
+												class=""> <span style="font-size: 13px;"> 虚拟实惊 /
+													异生 </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-06-16(澳大利亚) ◎类型: 剧情,科幻,惊悚 ◎国家: 澳大利亚 <br>
+												◎导演: Ben C.Lucas ◎主演: 杰西卡·德·古维,托马斯·康奎尔,T.J.Power
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar35"></span> <span class="rating_nums">7.0</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63314" title="私人会所"
+										target="_blank"> <img src="./喵爪电影片库_files/63314.jpg"
+											alt="私人会所" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63314" target="_blank"
+												class=""> <span style="font-size: 13px;"> 私人会所 /
+													Members Only </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-08-31(香港) ◎类型: 剧情 ◎国家: 香港 <br> ◎导演: 颜米羔
+												◎主演: 冯海锐,李任燊,汤加文,麦子乐,陈洁玲,陈咏谦,陈美伊,锺卓菲,李凯贤
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar25"></span> <span class="rating_nums">4.3</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63315" title="玻璃城堡"
+										target="_blank"> <img src="./喵爪电影片库_files/63315.jpg"
+											alt="玻璃城堡" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63315" target="_blank"
+												class=""> <span style="font-size: 13px;"> 玻璃城堡 </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-08-11(美国) ◎类型: 剧情,传记 ◎国家: 美国 <br> ◎导演:
+												德斯汀·克里顿 ◎主演:
+												布丽·拉尔森,伍迪·哈里森,娜奥米·沃茨,艾拉·安德森,钱德勒·海德,马克思·格林菲尔德,乔希·卡拉斯,查理·肖特韦尔,伊恩·阿米蒂奇,莎拉·斯努克,萨迪·辛克,奥利维亚·凯特·莱斯,布里盖特·伦迪·佩恩,席瑞·克鲁克斯,伊登·格雷斯·雷德菲尔德,罗宾·巴特利特,乔·平格,多米尼克·博加特
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar40"></span> <span class="rating_nums">7.5</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63316" title="雪山奇迹"
+										target="_blank"> <img src="./喵爪电影片库_files/63316.jpg"
+											alt="雪山奇迹" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63316" target="_blank"
+												class=""> <span style="font-size: 13px;"> 雪山奇迹 /
+													绝境求生：冰峰奇迹(台) / 6 Below: Miracle on the Mountain </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-10-13(美国) ◎类型: 剧情,传记,冒险 ◎国家: 美国 <br> ◎导演:
+												斯科特·沃 ◎主演: 乔什·哈奈特,米拉·索维诺,莎拉·杜蒙,Kale Culley,Jason
+												Cottle,Austin R. Grant,Nathan Stevens,Vashi Nedomansky,Joey
+												Miyashima,David H. Stevens
+											</p>
+											<div class="star clearfix">
+
+												<span class="rating_nums">暂无评分</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63317" title="末日之果"
+										target="_blank"> <img src="./喵爪电影片库_files/63317.jpg"
+											alt="末日之果" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63317" target="_blank"
+												class=""> <span style="font-size: 13px;"> 末日之果 /
+													The End of Days at Godfrey Global Inventory </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2016-09-30(加拿大) ◎类型: 喜剧,科幻 ◎国家: 加拿大 <br> ◎导演:
+												Jennifer Liao ◎主演: Mark O'Brien
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar25"></span> <span class="rating_nums">4.4</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63319" title="最后的告白"
+										target="_blank"> <img src="./喵爪电影片库_files/63319.jpg"
+											alt="最后的告白" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63319" target="_blank"
+												class=""> <span style="font-size: 13px;"> 最后的告白 /
+													最后的告白三部曲 </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-06-14(中国大陆) ◎类型: 剧情,悬疑,犯罪 ◎国家: 中国大陆 <br>
+												◎导演: 陈晨 郭炫佐 ◎主演: 龙斌,郭炫佐,苗雅宁,梁恩,徐嘉苇,蔡照,陈秋实
+											</p>
+											<div class="star clearfix">
+
+												<span class="rating_nums">暂无评分</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63318" title="梦中的简"
+										target="_blank"> <img src="./喵爪电影片库_files/63318.jpg"
+											alt="梦中的简" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63318" target="_blank"
+												class=""> <span style="font-size: 13px;"> 梦中的简 /
+													Jane </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2016-10(釜山电影节) ◎类型: 剧情 ◎国家: 韩国 <br> ◎导演: 赵玄勋
+												◎主演: 李敏芝,具乔焕
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar35"></span> <span class="rating_nums">6.2</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63311" title="我能说"
+										target="_blank"> <img src="./喵爪电影片库_files/63311.jpg"
+											alt="我能说" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63311" target="_blank"
+												class=""> <span style="font-size: 13px;"> 我能说 / I
+													Can Speak </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-09-21(韩国) ◎类型: 喜剧 ◎国家: 韩国 <br> ◎导演: 金炫锡
+												◎主演: 罗文姬,李帝勋,李相喜
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar45"></span> <span class="rating_nums">8.3</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63312" title="1922"
+										target="_blank"> <img src="./喵爪电影片库_files/63312.jpg"
+											alt="1922" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63312" target="_blank"
+												class=""> <span style="font-size: 13px;"> 1922 </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-10-20(美国) ◎类型: 剧情,悬疑,惊悚,恐怖,犯罪 ◎国家: 美国 <br>
+												◎导演: 扎克·希尔迪奇 ◎主演:
+												托马斯·简,莫莉·帕克,尼尔·麦克唐纳,布莱恩·达西·詹姆斯,迪兰·施密德,布鲁斯·布莱恩,罗恩·柯蒂斯,格雷姆·达菲,Kaitlyn
+												Bernard,Nikolai Witschl,Bob Frazer,Patrick Keating,Anna
+												Louise Sargeant
+											</p>
+											<div class="star clearfix">
+
+												<span class="allstar30"></span> <span class="rating_nums">5.8</span>
+
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/61760" title="昼行闪耀的流星"
+										target="_blank"> <img src="./喵爪电影片库_files/61760.jpg"
+											alt="昼行闪耀的流星" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/61760" target="_blank"
+												class=""> <span style="font-size: 13px;"> 昼行闪耀的流星
+													/ 白昼的流星(台) / 划过青空的火流星 </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-03-24(日本) ◎类型: 爱情 ◎国家: 日本 <br> ◎导演: 新城毅彦
+												◎主演: 永野芽郁,三浦翔平,白滨亚岚,山本舞香,佐藤隆太
+											</p>
+											<div class="star clearfix">
+												<span class="allstar35"></span> <span class="rating_nums">6.5</span>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="ul"></div>
+						<table width="100%" class=""
+							style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top"><a class="nbg"
+										href="http://www.miao-z.com/detail/63308" title="99号牢房内的博弈"
+										target="_blank"> <img src="./喵爪电影片库_files/63308.jpg"
+											alt="99号牢房内的博弈" class="" style="width: 90px; height: 130px">
+									</a></td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="http://www.miao-z.com/detail/63308" target="_blank"
+												class=""> <span style="font-size: 13px;">
+													99号牢房内的博弈 </span>
+											</a> <span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: 2017-09-03(威尼斯电影节) ◎类型: 动作,惊悚,犯罪 ◎国家: 美国 <br>
+												◎导演: S·克雷格·扎勒 ◎主演:
+												詹妮弗·卡朋特,文斯·沃恩,汤姆·盖里,唐·约翰逊,马克·布鲁卡斯,乌多·基尔,丹·安博尔,罗布·摩根,弗雷德·迈拉麦德,克拉克·约翰森,Geno
+												Segers,Mustafa Shakir,Pooja Kumar,Philip Ettinger,Michael
+												Medeiros
+											</p>
+											<div class="star clearfix">
+												<span class="allstar35"></span> <span class="rating_nums">6.5</span>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="paginator">
+						<span class="prev"> &lt;前页 </span> <span class="thispage">1</span>
+						&nbsp; <a href="http://www.miao-z.com/list?&amp;pn=2">2</a>&nbsp;
+						&nbsp; <a href="http://www.miao-z.com/list?&amp;pn=3">3</a>&nbsp;
+						&nbsp; <a href="http://www.miao-z.com/list?&amp;pn=4">4</a>&nbsp;
+						...&nbsp; <a href="http://www.miao-z.com/list?&amp;pn=20">20</a>&nbsp;
+						<span class="next"> <a
+							href="http://www.miao-z.com/list?&amp;pn=2">后页&gt;</a>
+						</span>
+					</div>
+				</div>
+				<div class="aside"></div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<div class="footer-extra"></div>
+			<span id="icp" class="fleft gray-link"> 2016
+				喵爪电影是影视作品搜索网站,所有影视资源均从互联网自动采集而来。本站仅提下载信息,不存放任何影视资源,所有影视版权归原权力人所有。<br>
+				任何问题&amp;合作请联系:t5721654@gmail.com <font color="#f8f8f8">喵爪,喵爪电影,猫爪电影,电影淘淘,迅播影院,电影天堂,迅雷之家,迅雷仓,bt天堂,飘花电影,迅雷下载</font>
+			</span> <br>
+		</div>
+
+
+	</div>
+
+</body>
+</html>

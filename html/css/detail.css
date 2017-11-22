@@ -1,0 +1,132 @@
+h1 .year {
+    color: #888;
+}
+
+.year {
+    display: inline-block;
+    zoom: 1;
+}
+
+.indent {
+    margin-bottom: 30px;
+}
+
+#mainpic {
+    margin: 3px 0 0 0;
+    float: left;
+    text-align: center;
+    margin: 3px 12px 0 0;
+    max-width: 155px;
+    overflow: hidden;
+}
+
+#mainpic a img {
+    margin-bottom: 10px;
+}
+
+#info {
+    float: left;
+    max-width: 450px;
+    word-wrap: break-word;
+}
+
+.related-pic {
+    margin-bottom: 30px;
+}
+
+#content h2 {
+    color: #00a1d6;
+    border-bottom: 1px solid #00a1d6;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+
+.related-info h2, .related-pic h2, #recommendations h2 {
+    margin: 24px 0 3px 0;
+}
+
+.related-pic-bd {
+    margin-right: -3px;
+    overflow: hidden;
+    letter-spacing: -0.31em;
+}
+
+.related-pic-bd.narrow li {
+    margin-right: 2px;
+}
+
+.related-pic-bd li {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: normal;
+    margin-right: 15px;
+}
+
+#recommendations .recommendations-bd {
+    margin-top: 15px;
+    margin-right: -18px;
+    letter-spacing: -0.31em;
+}
+
+#recommendations .recommendations-bd dl {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+    margin: 0 18px 0 0;
+    overflow: hidden;
+}
+
+#recommendations .recommendations-bd dt {
+    height: 145px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+#recommendations .recommendations-bd dt, #recommendations .recommendations-bd dd {
+    width: 100px;
+}
+
+#recommendations .recommendations-bd dd {
+    font-size: 13px;
+    text-align: center;
+}
+
+button {
+    border: none;
+    width: 60px;
+    height: 20px;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 3px;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    margin-right: 5px;
+}
+
+.copy-btn {
+    background: #00a1d6;
+    color: #fff;
+}
+
+.xunlei-btn {
+    background: #6ed241;
+    color: #fff;
+}
+
+.copy-btn:hover {
+    background: #0e7ea2;
+}
+
+.copy-success {
+    background: #fd4c5d;
+    color: #fff;
+}
+
+.td-d {
+    border: dashed #add9c0;
+    border-width: 0px 0px 1px 0px;
+}
