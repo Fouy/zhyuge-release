@@ -21,16 +21,16 @@
 <script src="/js/jquery.tmpl.min.js"></script>
 
 <script id="mv_1" type="text/x-jquery-tmpl">
-	<li id="${id}" class="list-item">
+	<li id="${movie_id}" class="list-item">
 		<ul class="">
 			<li class="poster">
-				<a href="/detail/${id}" class="ticket-btn" target="_blank">
-					<img src="/static/poster/m/${id}.jpg" alt="${title}" rel="nofollow" >
+				<a href="/movie/detail?movieId=${movie_id}" class="ticket-btn" target="_blank">
+					<img src="${logo_url}" alt="${name}" rel="nofollow" >
 				</a>
-				<span class="right-cornor-tag">${show_time}</span>
+				<span class="right-cornor-tag">${release_date}</span>
 			</li>
 			<li class="stitle">
-				<a href="/detail/${id}" class="ticket-btn" target="_blank">${title}</a>
+				<a href="/movie/detail?movieId=${movie_id}" class="ticket-btn" target="_blank">${name}</a>
 			</li>
 			<li class="srating">
 				<span class="text-tip">暂无评分</span>
@@ -40,20 +40,20 @@
 </script>
 
 <script id="mv_2" type="text/x-jquery-tmpl">
-	<li id="${id}" class="list-item">
+	<li id="${movie_id}" class="list-item">
 		<ul class="">
 			<li class="poster">
-				<a href="/detail/${id}" class="ticket-btn" target="_blank">
-					<img src="/static/poster/m/${id}.jpg" alt="${title}" rel="nofollow" >
+				<a href="/movie/detail?movieId=${movie_id}" class="ticket-btn" target="_blank">
+					<img src="${logo_url}" alt="${title}" rel="nofollow" >
 				</a>
-				<span class="right-cornor-tag">${show_time}</span>
+				<span class="right-cornor-tag">${release_date}</span>
 			</li>
 			<li class="stitle">
-				<a href="/detail/${id}" class="ticket-btn" target="_blank">${title}</a>
+				<a href="/movie/detail?movieId=${movie_id}" class="ticket-btn" target="_blank">${name}</a>
 			</li>
 			<li class="srating">
-				<span class="rating-star allstar${rating}"></span>&nbsp;
-				<span class="subject-rate">${douban_score}</span>
+				<span class="rating-star allstar40"></span>&nbsp;
+				<span class="subject-rate">${score}</span>
 			</li>
 		</ul>
 	</li>
@@ -73,11 +73,11 @@
 // 加载更多
 var pn = 1;
 function load_data(){
-	$.get("/latest_json?pn="+pn, function(data, status){
+	$.get("/movie/list?pageNo="+pn, function(result, status){
 		$("#more_btn").html("加载中...");
-		data = eval(data);
+		var data = result.data;
 		for (i = 0; i < data.length; i++) {
-			if (data[i].douban_score == null){
+			if (data[i].score == null){
 				$("#mv_1").tmpl(data[i]).appendTo('#latest');
 			} else {
 				$("#mv_2").tmpl(data[i]).appendTo('#latest');
@@ -88,7 +88,7 @@ function load_data(){
 		} else {
 			$("#more_btn").html("加载更多");
 		}
-	});
+	}, 'json');
 	pn += 1;
 }
 
@@ -151,73 +151,24 @@ function switch_rank(target) {
 						<div class="mod-bd">
 							<ul class="lists">
 
-								<li id="10907" class="list-item">
+								{% for i, v in ipairs(hotList) do %}
+								<li id="{* v.movie_id *}" class="list-item">
 									<ul>
-										<li class="poster"><a
-											href="http://www.miao-z.com/detail/10907" class="ticket-btn"
-											target="_blank"> <img src="./章鱼哥电影_files/10907.jpg"
-												alt="言叶之庭" rel="nofollow">
-										</a></li>
-										<li class="stitle"><a
-											href="http://www.miao-z.com/detail/10907" class="ticket-btn"
-											target="_blank">言叶之庭</a></li>
-
-										<li class="srating"><span class="rating-star allstar45"></span>&nbsp;
-											<span class="subject-rate">8.2</span></li>
-
+										<li class="poster">
+											<a href="/movie/detail?movieId={* v.movie_id *}" class="ticket-btn" target="_blank"> 
+												<img src="{* v.logo_url *}" alt="{* v.name *}" rel="nofollow">
+											</a>
+										</li>
+										<li class="stitle">
+											<a href="/movie/detail?movieId={* v.movie_id *}" class="ticket-btn" target="_blank">{* v.name *}</a>
+										</li>
+										<li class="srating">
+											<span class="rating-star allstar45"></span>&nbsp;
+											<span class="subject-rate">{* v.score *}</span>
+										</li>
 									</ul>
 								</li>
-
-								<li id="14056" class="list-item">
-									<ul>
-										<li class="poster"><a
-											href="http://www.miao-z.com/detail/14056" class="ticket-btn"
-											target="_blank"> <img src="./章鱼哥电影_files/14056.jpg"
-												alt="星际特工：千星之城" rel="nofollow">
-										</a></li>
-										<li class="stitle"><a
-											href="http://www.miao-z.com/detail/14056" class="ticket-btn"
-											target="_blank">星际特工：千星之城</a></li>
-
-										<li class="srating"><span class="rating-star allstar40"></span>&nbsp;
-											<span class="subject-rate">7.1</span></li>
-
-									</ul>
-								</li>
-
-								<li id="16702" class="list-item">
-									<ul>
-										<li class="poster"><a
-											href="http://www.miao-z.com/detail/16702" class="ticket-btn"
-											target="_blank"> <img src="./章鱼哥电影_files/16702.jpg"
-												alt="战栗空间" rel="nofollow">
-										</a></li>
-										<li class="stitle"><a
-											href="http://www.miao-z.com/detail/16702" class="ticket-btn"
-											target="_blank">战栗空间</a></li>
-
-										<li class="srating"><span class="rating-star allstar40"></span>&nbsp;
-											<span class="subject-rate">7.1</span></li>
-
-									</ul>
-								</li>
-
-								<li id="30929" class="list-item">
-									<ul>
-										<li class="poster"><a
-											href="http://www.miao-z.com/detail/30929" class="ticket-btn"
-											target="_blank"> <img src="./章鱼哥电影_files/30929.jpg"
-												alt="小丑回魂" rel="nofollow">
-										</a></li>
-										<li class="stitle"><a
-											href="http://www.miao-z.com/detail/30929" class="ticket-btn"
-											target="_blank">小丑回魂</a></li>
-
-										<li class="srating"><span class="rating-star allstar40"></span>&nbsp;
-											<span class="subject-rate">7.6</span></li>
-
-									</ul>
-								</li>
+						      	{% end %}
 
 							</ul>
 						</div>
@@ -226,25 +177,6 @@ function switch_rank(target) {
 						</div>
 						<div class="mod-bd">
 							<ul class="lists" id="latest">
-								{% for i, v in ipairs(list) do %} 
-								<li id="{* v.movie_id *}" class="list-item">
-									<ul class="">
-										<li class="poster">
-											<a href="/movie/detail?movieId={* v.movie_id *}" class="ticket-btn" target="_blank"> 
-												<img src="{* v.logo_url *}" alt="{* v.name *}" rel="nofollow">
-											</a> 
-											<span class="right-cornor-tag">{* v.release_date *}</span>
-										</li>
-										<li class="stitle">
-											<a href="http://www.miao-z.com/detail/14056" class="ticket-btn" target="_blank">{* v.name *}</a>
-										</li>
-										<li class="srating">
-											<span class="rating-star allstar40"></span>&nbsp;
-											<span class="subject-rate">{* v.score *}</span>
-										</li>
-									</ul>
-								</li>
-						      	{% end %}
 
 							</ul>
 							<a id="more_btn" href="javascript:load_data();">加载更多</a>

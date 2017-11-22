@@ -90,6 +90,26 @@ function _M:list( args )
 	return res
 end
 
+-- 查询近期热播
+function _M:hot()
+	local db = mysql:new()
+	local sql = "select * from movie order by modify_time desc limit 4 "
+
+	db:query("SET NAMES utf8")
+	local res, err, errno, sqlstate = db:query(sql)
+	db:close()
+	if not res then
+		ngx.say(err)
+		return {}
+	end
+
+	for i,v in ipairs(res) do
+		self.convert(v)
+	end
+
+	return res
+end
+
 -- 查询详情
 function _M.detail( self, movieId )
 	movieId = ngx.quote_sql_str(movieId)
