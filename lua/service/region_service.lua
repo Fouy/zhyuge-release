@@ -23,7 +23,7 @@ end
 
 -- 查询详情
 function _M:detail( regionId )
-	ngx.log(ngx.ERR, "FUCK YOU MAN: " .. regionId)
+	-- ngx.log(ngx.ERR, "FUCK YOU MAN: " .. regionId)
 	local db = mysql:new()
 	local sql = "select * from region where region_id = %d"
 	sql = string.format(sql, tonumber(regionId))

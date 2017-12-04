@@ -78,11 +78,11 @@ ul, ol {
 .allstar50, .allstar45, .allstar40, .allstar35, .allstar30, .allstar25, .allstar20, .allstar15, .allstar10, .allstar05, .allstar00, .rating1-t, .rating15-t, .rating2-t, .rating25-t, .rating3-t, .rating35-t, .rating4-t, .rating45-t, .rating5-t, .rating-t, .starb ~ .stars5, .starb ~ .stars4, .starb ~ .stars3, .starb ~ .stars2, .starb ~ .stars1, .collectors .stars5, .collectors .stars4, .collectors .stars3, .collectors .stars2, .collectors .stars1 {
     display: inline-block;
     zoom: 1;
-    background: url(/images/ic_rating_s.png) no-repeat;
-    background: -webkit-image-set(url(/images/ic_rating_s.png) 1x, url(/images/ic_rating_s@2x.png) 2x) no-repeat;
-    background: -moz-image-set(url(/images/ic_rating_s.png) 1x, url(/images/ic_rating_s@2x.png) 2x) no-repeat;
-    background: -o-image-set(url(/images/ic_rating_s.png) 1x, url(/images/ic_rating_s@2x.png) 2x) no-repeat;
-    background: -ms-image-set(url(/images/ic_rating_s.png) 1x, url(/images/ic_rating_s@2x.png) 2x) no-repeat;
+    background: url(/img/ic_rating_s.png) no-repeat;
+    background: -webkit-image-set(url(/img/ic_rating_s.png) 1x, url(/img/ic_rating_s@2x.png) 2x) no-repeat;
+    background: -moz-image-set(url(/img/ic_rating_s.png) 1x, url(/img/ic_rating_s@2x.png) 2x) no-repeat;
+    background: -o-image-set(url(/img/ic_rating_s.png) 1x, url(/img/ic_rating_s@2x.png) 2x) no-repeat;
+    background: -ms-image-set(url(/img/ic_rating_s.png) 1x, url(/img/ic_rating_s@2x.png) 2x) no-repeat;
     width: 55px;
     height: 11px;
     margin: 0 3px 0 0;
@@ -430,7 +430,7 @@ fieldset legend {
 }
 
 #db-nav-movie .nav-search .inp {
-    background-image: url(/images/nav_mv_bg.png);
+    background-image: url(/img/nav_mv_bg.png);
 }
 
 .nav-search .inp {
@@ -440,7 +440,7 @@ fieldset legend {
     text-align: center;
     _margin-right: -3px;
     cursor: text;
-    background: url(/images/nav_bg_a1.png) no-repeat 0 0;
+    background: url(/img/nav_bg_a1.png) no-repeat 0 0;
 }
 
 .nav-search .inp input {
@@ -465,7 +465,7 @@ fieldset legend {
 }
 
 #db-nav-movie .nav-search .inp-btn input {
-    background-image: url(/images/nav_mv_bg.png);
+    background-image: url(/img/nav_mv_bg.png);
 }
 
 .nav-search .inp-btn input {
@@ -474,7 +474,7 @@ fieldset legend {
     font-size: 0;
     padding: 35px 0 0 0;
     overflow: hidden;
-    background: url(/images/nav_bg_a1.png) no-repeat 0 -40px;
+    background: url(/img/nav_bg_a1.png) no-repeat 0 -40px;
     color: transparent;
     cursor: pointer;
 }
@@ -503,7 +503,7 @@ fieldset legend {
     font-size: 14px;
     margin-left:-5px;
     vertical-align: top;
-    background: #00a1d6 url('/images/search-btn.png') no-repeat 13px 8px;
+    background: #00a1d6 url('/img/search-btn.png') no-repeat 13px 8px;
     color: #fff;
     border-radius: 0 3px 3px 0;
     padding: 0;
@@ -512,7 +512,7 @@ fieldset legend {
 }
 
 .search-btn:hover {
-    background: #0e7ea2 url('/images/search-btn.png') no-repeat 13px 8px;
+    background: #0e7ea2 url('/img/search-btn.png') no-repeat 13px 8px;
 }
 
 .nav .nav-primary, .nav .nav-secondary {

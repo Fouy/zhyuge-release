@@ -1,0 +1,35 @@
+.condition {
+    width: 664px;
+    margin: 0 0 15px 0;
+    display: block;
+    background: rgba(195, 190, 190, 0.15);
+    padding: 5px 10px;
+    color: #666;
+    border-bottom: 1px solid #f0f3f5;
+    /* height: 30px; */
+    /* line-height: 33px; */
+    clear: both;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.condition a {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 0 0 10px;
+}
+
+.item_box {
+    margin: 7px 0;
+}
+
+.rr {
+	float: right;
+}
+.ul {
+	border-bottom: 1px dashed #DDDDDD;
+	line-height: 100%;
+	clear: both;
+}
+.flag{font-size: 12px; padding-left: 3px; color: #00a1d6;}
