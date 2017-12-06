@@ -14,93 +14,21 @@
 	<div id="cinemas-section">
 		<div class="hd">
 			<h2>
-				高分随机看 <a href="javascript:rand_mvs();" class="more">换一换»</a>
+				高分电影<a href="javascript:rand_mvs();" class="more">换一换»</a>
 			</h2>
 		</div>
 		<div class="bd">
 			<div class="tab-mod on">
 				<ul class="cinema-items" id="rand_mvs">
-
+					{% for i, v in ipairs(scoreList) do %}
 					<li class="cinema-item">
 						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/12002">[夺宝联盟] [<font
-								color="#00a1d6">7.1</font>] [韩国] [2012] [动作]
+							<a target="_blank" href="/movie/detail?movieId={* v.movie_id *}">[{* v.name *}] 
+							[<font color="#00a1d6">{* v.score *}</font>] [{* v.region_names *}] [{* v.year *}] [{* v.type_names *}]
 							</a>
 						</p>
 					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/24098">[克里斯托弗及同党] [<font
-								color="#00a1d6">7.3</font>] [英国] [2011] [剧情]
-							</a>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/10685">[人生不再重来] [<font
-								color="#00a1d6">8.1</font>] [印度] [2011] [剧情]
-							</a>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/15677">[速度与激情2] [<font
-								color="#00a1d6">7.1</font>] [美国] [2003] [动作]
-							</a>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/47489">[傲慢与偏见] [<font
-								color="#00a1d6">7.1</font>] [韩国] [2014] [剧情]
-							</a>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/32305">[大开眼戒] [<font
-								color="#00a1d6">7.4</font>] [以色列] [2009] [剧情]
-							</a>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/10239">[爱你如诗美丽] [<font
-								color="#00a1d6">8.1</font>] [意大利] [2005] [剧情]
-							</a>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/12537">[明月守护者] [<font
-								color="#00a1d6">8.3</font>] [法国] [2014] [动画]
-							</a>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/13880">[现代启示录] [<font
-								color="#00a1d6">8.3</font>] [美国] [1979] [剧情]
-							</a>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/17161">[少年收容所] [<font
-								color="#00a1d6">7.7</font>] [美国] [2013] [剧情]
-							</a>
-						</p>
-					</li>
-
+					{% end %}
 				</ul>
 			</div>
 		</div>

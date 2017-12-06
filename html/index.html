@@ -57,12 +57,12 @@
 		</ul>
 	</li>
 </script>
-
+<!-- 高分电影模板 -->
 <script id="rand_items" type="text/x-jquery-tmpl">
 	<li class="cinema-item">
 		<p style="font-size:13px; margin:5px 0">
-			<a href="/detail/${id}" target="_blank">
-			${title} [<font color="#00a1d6">${douban_score}</font>] [${area}] [${product_year}] [${types}]
+			<a href="/movie/detail?movieId=${movie_id}" target="_blank">
+			${name} [<font color="#00a1d6">${score}</font>] [${region_names}] [${year}] [${type_names}]
 			</a>
 		</p>
 	</li>
@@ -91,16 +91,15 @@ function load_data(){
 	pn += 1;
 }
 
-var rand_pn = 2;
+// 高分电影（随机）
 function rand_mvs(){
-	$.get("/rand_mvs?pn="+rand_pn, function(data, status){
-		data = eval(data);
+	$.get("/movie/highmarks", function(result, status){
+		var data = result.data;
 		$('#rand_mvs').empty();
 		for (i = 0; i < data.length; i++) {
 			$("#rand_items").tmpl(data[i]).appendTo('#rand_mvs');
 		}
-	});
-	rand_pn += 1;
+	}, 'json');
 }
 
 // 设置本页标签选中
@@ -142,7 +141,7 @@ function switch_rank(target) {
 				<div class="article">
 					<div id="nowplaying">
 						<div class="mod-hd">
-							<script type="text/javascript" src="./章鱼哥电影_files/o.php"></script>
+							<script type="text/javascript" src=""></script>
 						</div>
 						<div class="mod-hd">
 							<h2>近期热门</h2>

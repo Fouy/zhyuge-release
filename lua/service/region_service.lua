@@ -21,6 +21,22 @@ function _M:list()
 	return res
 end
 
+-- 查询列表(TOP10)
+function _M:top10()
+	local db = mysql:new()
+	local sql = "select * from region order by region_id asc limit 10 "
+
+	db:query("SET NAMES utf8")
+	local res, err, errno, sqlstate = db:query(sql)
+	db:close()
+	if not res then
+		ngx.say(err)
+		return {}
+	end
+
+	return res
+end
+
 -- 查询详情
 function _M:detail( regionId )
 	-- ngx.log(ngx.ERR, "FUCK YOU MAN: " .. regionId)

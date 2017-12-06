@@ -4,6 +4,7 @@ local result = require "common.result"
 local movie_service = require "service.movie_service"
 local movie_type_service = require "service.movie_type_service"
 local common_service = require "service.common_service"
+local region_service = require "service.region_service"
 local hot_search_service = require "service.hot_search_service"
 local download_url_service = require "service.download_url_service"
 local template = require("resty.template")
@@ -33,6 +34,8 @@ function _M:index()
 	local context = { hotList = hotList }
 	-- 增加热搜关键词
 	context["searchList"] = hot_search_service:list()
+	-- 增加高分电影
+	context["scoreList"] = movie_service:highmarks()
 	
 	template.render("index.html", context)
 end
@@ -54,7 +57,13 @@ function _M:list()
 	ngx.say(cjson.encode(result:success("查询成功", list)))
 end
 
--- 搜索页
+-- 高分电影接口（主页）
+function _M:highmarks()
+	local list = movie_service:highmarks()
+	ngx.say(cjson.encode(result:success("查询成功", list)))
+end
+
+-- 搜索页(暂未开发)
 function _M:search()
 	local args = req.getArgs()
 	local pageNo = args["pageNo"]
@@ -83,13 +92,30 @@ end
 function _M:repertory()
 	local args = req.getArgs()
 	local pageNo = args["pageNo"]
-	local pageSize = args["pageSize"]
+	local classify = args["classify"]
+	local _type = args["type"]
+	local region = args["region"]
+	local year = args["year"]
+	local sort = args["sort"]
 
 	if pageNo == nil or pageNo == "" then
 		args["pageNo"] = 1
 	end
-	if pageSize == nil or pageSize == "" then
-		args["pageSize"] = 20
+	args["pageSize"] = 20
+	if classify == nil or classify == "" then
+		args["classify"] = '1'
+	end
+	if _type == nil or _type == "" then
+		args["type"] = '-1'
+	end
+	if region == nil or region == "" then
+		args["region"] = '-1'
+	end
+	if year == nil or year == "" then
+		args["year"] = '-1'
+	end
+	if sort == nil or sort == "" then
+		args["sort"] = '1'
 	end
 
 	local list = movie_service:list(args)
@@ -102,6 +128,13 @@ function _M:repertory()
 	-- 增加热搜关键词
 	context["searchList"] = hot_search_service:list()
 	-- ngx.log(ngx.ERR, "++++++++++++ " .. cjson.encode(page))
+
+	-- 封装搜索条件
+	context['args'] = args
+	-- 获取类型列表
+	context['typeList'] = movie_type_service:top10()
+	-- 获取地区列表
+	context['regionList'] = region_service:top10()
 
 	template.render("list.html", context)
 end

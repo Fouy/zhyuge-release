@@ -17,42 +17,49 @@
 
 <link rel="stylesheet" href="/css/list.css">
 <script>
-	var tp = '0';
-	var tag = '';
-	var area = '';
-	var py = '';
-	var sr = '1';
-	var sort = '1';
-	function choose_tp(n_tp) {
-		tp = n_tp;
+	var pageNo = {* args.pageNo *}
+
+	var classify = {* args.classify *};
+	var type = {* args.type *};
+	var region = {* args.region *};
+	var year = {* args.year *};
+	var sort = {* args.sort *};
+
+	function choose_page(n_pageNo) {
+		pageNo = n_pageNo;
 		redirect();
 	}
-	function choose_tag(n_tag) {
-		tag = n_tag;
+	function choose_classify(n_classify) {
+		classify = n_classify;
+		pageNo = 1;
 		redirect();
 	}
-	function choose_area(n_area) {
-		area = n_area;
+	function choose_type(n_type) {
+		type = n_type;
+		pageNo = 1;
 		redirect();
 	}
-	function choose_py(n_py) {
-		py = n_py;
+	function choose_region(n_region) {
+		region = n_region;
+		pageNo = 1;
 		redirect();
 	}
-	function choose_sr(n_sr) {
-		sr = n_sr;
+	function choose_year(n_year) {
+		year = n_year;
+		pageNo = 1;
 		redirect();
 	}
 	function choose_sort(n_sort) {
 		sort = n_sort;
+		pageNo = 1;
 		redirect();
 	}
 	function redirect() {
-		window.location.href = '/list/' + tp + '-' + tag + '-' + area + '-'
-				+ py + '-' + sr + '-' + sort + '.html';
+		window.location.href = '/movie/repertory?pageNo='+pageNo + '&classify='+classify + '&type='+type + '&region='+region
+				+ '&year='+year + '&sort='+sort;
 	}
 	$(document).ready(function() {
-		$("#list").addClass("current");
+		$("#repertory").addClass("current");
 	});
 </script>
 
@@ -68,37 +75,45 @@
 				<div class="article">
 					<div class="condition">
 						<div class="item_box">
-							<span class="tip">分&nbsp;&nbsp;类&nbsp;&nbsp;|</span> 
-							<a style="color: #00a1d6;" href="javascript:choose_tp(&#39;0&#39;)">电影</a>
-							<a href="javascript:choose_tp(&#39;1&#39;)">电视剧</a>
+							<span class="tip">分&nbsp;&nbsp;类&nbsp;&nbsp;|</span>
+							<a {% if args['classify'] == '1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_classify(1)">电影</a>
+							<a {% if args['classify'] == '2' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_classify(2)">电视剧</a>
 						</div>
 						<div class="item_box">
 							<span class="tip">类&nbsp;&nbsp;型&nbsp;&nbsp;|</span> 
-							<a style="color: #00a1d6;" href="javascript:choose_tag(&#39;&#39;)">全部</a>
-							<a href="javascript:choose_tag(&#39;1&#39;)">爱情</a> 
-							<a href="javascript:choose_tag(&#39;2&#39;)">喜剧</a> 
-							<a href="javascript:choose_tag(&#39;3&#39;)">动画</a> 
-							<a href="javascript:choose_tag(&#39;4&#39;)">剧情</a> 
-							<a href="javascript:choose_tag(&#39;5&#39;)">科幻</a>
+							<a {% if args['type'] == '-1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_type(-1)">全部</a>
+							{% for i, v in ipairs(typeList) do %}
+							<a {% if tonumber(args['type']) == v['type_id'] then %} style="color: #00a1d6;" {% end %} href="javascript:choose_type({* v.type_id *})">{* v.name *}</a>
+							{% end %}
 						</div>
 						<div class="item_box">
 							<span class="tip">地&nbsp;&nbsp;区&nbsp;&nbsp;|</span>
-							<a style="color: #00a1d6;" href="javascript:choose_area(&#39;&#39;)">全部</a>
-							<a href="javascript:choose_area(&#39;1&#39;)">中国</a>
-							<a href="javascript:choose_area(&#39;2&#39;)">美国</a>
-							<a href="javascript:choose_area(&#39;3&#39;)">英国</a>
+							<a {% if args['region'] == '-1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_region(-1)">全部</a>
+							{% for i, v in ipairs(regionList) do %}
+							<a {% if tonumber(args['region']) == v['region_id'] then %} style="color: #00a1d6;" {% end %} href="javascript:choose_region({* v.region_id *})">{* v.name *}</a>
+							{% end %}
 						</div>
 						<div class="item_box">
 							<span class="tip">年&nbsp;&nbsp;份&nbsp;&nbsp;|</span> 
-							<a style="color: #00a1d6;" href="javascript:choose_py(&#39;&#39;)">全部</a>
-							<a href="javascript:choose_py(&#39;2016&#39;)">2016</a> 
-							<a href="javascript:choose_py(&#39;2015&#39;)">2015</a> 
-							<a href="javascript:choose_py(&#39;2014&#39;)">2014</a>
+							<a {% if args['year'] == '-1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(-1)">全部</a>
+							<a {% if args['year'] == '2017' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2017)">2017</a>
+							<a {% if args['year'] == '2016' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2016)">2016</a>
+							<a {% if args['year'] == '2015' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2015)">2015</a>
+							<a {% if args['year'] == '2014' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2014)">2014</a>
+							<a {% if args['year'] == '2013' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2013)">2013</a>
+							<a {% if args['year'] == '2012' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2012)">2012</a>
+							<a {% if args['year'] == '2011' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2011)">2011</a>
+							<a {% if args['year'] == '2010' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2010)">2010</a>
+							<a {% if args['year'] == '2009' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2009)">2009</a>
+							<a {% if args['year'] == '2008' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2008)">2008</a>
+							<a {% if args['year'] == '2007' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2007)">2007</a>
+							<a {% if args['year'] == '2006' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2006)">2006</a>
+							<a {% if args['year'] == '2005' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2005)">2005</a>
 						</div>
 						<div class="item_box">
 							<span class="tip">排&nbsp;&nbsp;序&nbsp;&nbsp;|</span>
-							<a style="color: #00a1d6;" href="javascript:choose_py(&#39;2016&#39;)">最新</a> 
-							<a href="javascript:choose_py(&#39;2015&#39;)">评分</a>
+							<a {% if args['sort'] == '1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_sort(1)">最新</a> 
+							<a {% if args['sort'] == '2' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_sort(2)">评分</a>
 						</div>
 					</div>
 
@@ -143,7 +158,7 @@
 					{% if page then %}
 						{% if page['prev'] then %}
 							<span class="prev"> 
-								<a href="/movie/repertory?&amp;pageNo={* page['prev'] *}"> &lt;上一页 </a>
+								<a href="javascript:choose_page({* page['prev'] *})"> &lt;上一页 </a>
 							</span>
 						{% end %}
 
@@ -151,13 +166,13 @@
 							{% if v == tonumber(page['current']) then %}
 							<span class="thispage">{* v *}</span> &nbsp; 
 							{% else %}
-							<a href="/movie/repertory?&amp;pageNo={* v *}">{* v *}</a>&nbsp; &nbsp; 
+							<a href="javascript:choose_page({* v *})">{* v *}</a>&nbsp; &nbsp; 
 							{% end %}
 						{% end %}
 						
 						{% if page['next'] then %}
 							<span class="next"> 
-								<a href="/movie/repertory?&amp;pageNo={* page['next'] *}">下一页&gt;</a>
+								<a href="javascript:choose_page({* page['next'] *})">下一页&gt;</a>
 							</span>
 						{% end %}
 						
