@@ -5,9 +5,9 @@
 				<a href="/"><img src="/img/logo.png" style="width: 180px; height: 40px; margin-top: 12px;"></a>
 			</div>
 			<div class="nav-search">
-				<form action="http://www.miao-z.com/so" method="get">
+				<form action="/movie/search" method="get">
 					<fieldset>
-						<input id="inp-query" name="q" size="22" maxlength="60" value="" placeholder="电影、电视剧、演员、导演" autocomplete="off">
+						<input id="inp-query" name="keyword" size="22" maxlength="60" value="{% if args and args['keyword'] and args['keyword'] ~= '' then %}{* args.keyword *}{% end %}" placeholder="电影、电视剧、演员、导演" autocomplete="off">
 						<button class="search-btn" type="submit" value="搜索"></button>
 					</fieldset>
 				</form>
@@ -15,7 +15,7 @@
 					<span class="hot-words" id="hws">
 					
 						{% for i, v in ipairs(searchList) do %}
-						<a class="hw" href="">{* v.name *}</a>
+						<a class="hw" href="/movie/search?keyword={* v.name *}">{* v.name *}</a>
 				      	{% end %}
 
 					</span>
@@ -39,8 +39,8 @@
 						</div>
 					</li>
 					<li>
-						<div id="chart">
-							<a href="#">电视剧</a>
+						<div id="drama">
+							<a href="/movie/drama">电视剧</a>
 						</div>
 					</li>
 					<li>

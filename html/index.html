@@ -51,7 +51,7 @@
 				<a href="/movie/detail?movieId=${movie_id}" class="ticket-btn" target="_blank">${name}</a>
 			</li>
 			<li class="srating">
-				<span class="rating-star allstar40"></span>&nbsp;
+				<span class="rating-star allstar${scoreimg}"></span>&nbsp;
 				<span class="subject-rate">${score}</span>
 			</li>
 		</ul>
@@ -161,8 +161,14 @@ function switch_rank(target) {
 											<a href="/movie/detail?movieId={* v.movie_id *}" class="ticket-btn" target="_blank">{* v.name *}</a>
 										</li>
 										<li class="srating">
-											<span class="rating-star allstar45"></span>&nbsp;
-											<span class="subject-rate">{* v.score *}</span>
+
+											{% if v.score == nil or v.score == "" then %}
+												<span class="subject-rate">暂无评分</span>
+											{% else %}
+												<span class="rating-star allstar{* v.scoreimg *}"></span>&nbsp;
+												<span class="subject-rate">{* v.score *}</span>
+											{% end %}
+
 										</li>
 									</ul>
 								</li>

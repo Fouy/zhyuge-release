@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="ua-mac ua-webkit">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="renderer" content="webkit">
+<meta name="referrer" content="always">
+<title>章鱼哥搜索结果 - {* args.keyword *}</title>
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="keywords" content="章鱼哥,喵爪,阳光电影,电影天堂,电影,经典电影,资源,下载,迅雷下载,排行,电影推荐,影视大全">
+<meta name="description" content="章鱼哥电影提供最新的电影下载地址以及热门、高分、好玩的电影推荐,无论您喜欢哪种类型,章鱼哥电影都会定期给你推荐哦。">
+<link rel="apple-touch-icon" href="/img/favicon.png">
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="/js/jquery.min.js"></script>
+<link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+
+<link rel="stylesheet" href="/css/list.css">
+<script>
+	var pageNo ='{* args.pageNo *}';
+	var keyword = '{* args.keyword *}';
+
+	function choose_page(n_pageNo) {
+		pageNo = n_pageNo;
+		redirect();
+	}
+	function redirect() {
+		window.location.href = '/movie/repertory?pageNo='+pageNo+'&keyword='+keyword;
+	}
+
+</script>
+
+</head>
+<body>
+	
+	{(header.html)}
+
+	<div id="wrapper">
+
+		<div id="content">
+			<div class="grid-16-8 clearfix">
+				<div class="article">
+
+					<div class="">
+					{% if table.getn(list) > 0 then %}
+						{% for i, v in ipairs(list) do %}
+						<div class="ul"></div>
+						<table width="100%" class="" style="border-collapse: separate; border-spacing: 0 10px;">
+							<tbody>
+								<tr class="item">
+									<td width="100" valign="top">
+										<a class="nbg" href="/movie/detail?movieId={* v.movie_id *}" title="{* v.name *}" target="_blank">
+											<img src="{* v.logo_url *}" alt="{* v.name *}" class="" style="width: 90px; height: 130px">
+										</a>
+									</td>
+									<td valign="top">
+										<div class="pl2" style="margin-left: 10px;">
+											<a href="/movie/detail?movieId={* v.movie_id *}" target="_blank" class=""> 
+												<span style="font-size: 13px;"> {* v.name *} / {* v.en_name *} </span>
+											</a> 
+											<span class="flag">[可下载]</span>
+											<p class="pl">
+												◎上映时间: {* v.release_date *} ◎类型: {* v.type_names *} ◎国家: {* v.region_names *} <br>
+												◎导演: {* v.director *} ◎主演: {* v.actor *}
+											</p>
+											<div class="star clearfix">
+												{% if v.score == nil or v.score == "" then %}
+													<span class="rating_nums">暂无评分</span>
+												{% else %}
+													<span class="allstar{* v.scoreimg *}"></span>
+													<span class="rating_nums">{* v.score *}</span>
+												{% end %}
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						{% end %}
+					{% else %}
+						<center>
+						<br><br><br>
+						<img src="/img/no.png" style="width: 100px;"> <br>
+						<span style="list-style-type:none; list-style-image:none; list-style-position:outside; font-size:14px; line-height: 32px; color: #27a;">没有找到相关资源, 请修改筛选条件‘(*>﹏<*)′</span>
+						</center>
+					{% end %}
+					</div>
+
+					<div class="paginator">
+					{% if page then %}
+						{% if page['prev'] then %}
+							<span class="prev"> 
+								<a href="javascript:choose_page({* page['prev'] *})"> &lt;上一页 </a>
+							</span>
+						{% end %}
+
+						{% for i, v in ipairs(page['pageList']) do %}
+							{% if v == tonumber(page['current']) then %}
+							<span class="thispage">{* v *}</span> &nbsp; 
+							{% else %}
+							<a href="javascript:choose_page({* v *})">{* v *}</a>&nbsp; &nbsp; 
+							{% end %}
+						{% end %}
+						
+						{% if page['next'] then %}
+							<span class="next"> 
+								<a href="javascript:choose_page({* page['next'] *})">下一页&gt;</a>
+							</span>
+						{% end %}
+						
+					{% end %}
+					</div>
+				</div>
+
+				<div class="aside"></div>
+
+			</div>
+		</div>
+
+		{(footer.html)}
+
+	</div>
+
+</body>
+</html>

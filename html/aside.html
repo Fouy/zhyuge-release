@@ -5,7 +5,7 @@
 			<h2>网站公告</h2>
 		</div>
 		<div class="bd">
-			去掉弹窗广告、用户体检差。<br> 希望大家推荐「章鱼哥电影」给喜欢电影的朋友支持本站: )<br>
+			去掉弹窗广告、用户体检差。<br> 希望大家推荐「章鱼哥电影」给喜欢电影的朋友: )<br>
 			欢迎加QQ群：534418491 一起讨论交流。 <br>
 			<br>
 		</div>
@@ -37,83 +37,20 @@
 	<div style="margin-top: 20px">
 		<div class="hd">
 			<h2>
-				电视剧更新 <a href="http://www.miao-z.com/tv" target="_blank" class="more">更多»</a>
+				电视剧更新 <a href="/movie/drama" target="_blank" class="more">更多»</a>
 			</h2>
 		</div>
 		<div class="bd">
 			<div class="tab-mod on">
 				<ul class="cinema-items">
-
+					{% for i, v in ipairs(dramaList) do %}
 					<li class="cinema-item">
 						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/63156">美国恐怖故事：邪教
-								第七季 第9集</a> <span style="display: none;"></span>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/40221">好医生 第6集</a> <span
-								style="display: none;"></span>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/63323">我男人的秘密 第25集</a>
+							<a target="_blank" href="/movie/detail?movieId={* v.movie_id *}">[{* v.name *}] [{* v.region_names *}] [<font color="#00a1d6">第{* v.length *}集</font>]</a> 
 							<span style="display: none;"></span>
 						</p>
 					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/63204">爱情的温度 第25集</a> <span
-								style="display: none;"></span>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/63243">星际迷航：发现号 第7集</a>
-							<span style="display: none;"></span>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/63205">天蝎 第四季 第6集</a> <span
-								style="display: none;"></span>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/63295">卞赫的爱情 第5集</a> <span
-								style="display: none;"></span>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/63247">我黄金光辉的人生
-								第18集</a> <span style="display: none;"></span>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/63244">僵尸国度 第四季 第5集</a>
-							<span style="display: none;"></span>
-						</p>
-					</li>
-
-					<li class="cinema-item">
-						<p style="font-size: 13px; margin: 5px 0">
-							<a href="http://www.miao-z.com/detail/63132">轩辕剑之汉之云 第50集</a>
-							<span style="display: none;"></span>
-						</p>
-					</li>
-
+					{% end %}
 				</ul>
 			</div>
 		</div>

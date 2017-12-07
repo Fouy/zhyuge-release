@@ -36,6 +36,8 @@ function _M:index()
 	context["searchList"] = hot_search_service:list()
 	-- 增加高分电影
 	context["scoreList"] = movie_service:highmarks()
+	-- 增加电视剧更新
+	context['dramaList'] = movie_service:dramaindex()
 	
 	template.render("index.html", context)
 end
@@ -63,29 +65,37 @@ function _M:highmarks()
 	ngx.say(cjson.encode(result:success("查询成功", list)))
 end
 
--- 搜索页(暂未开发)
+-- 搜索页
 function _M:search()
 	local args = req.getArgs()
 	local pageNo = args["pageNo"]
-	local pageSize = args["pageSize"]
 	local keyword = args["keyword"]
 
 	if pageNo == nil or pageNo == "" then
 		args["pageNo"] = 1
 	end
-	if pageSize == nil or pageSize == "" then
-		args["pageSize"] = 10
-	end
-	if keyword == nil or keyword == "" then
-		args["keyword"] = ""
-	end
+	-- 去空格
+	-- if keyword ~= nil or keyword ~= "" then
+	-- 	args["keyword"] = args["keyword"]
+	-- end
+	args["pageSize"] = 20
+	args["sort"] = '1'
 
 	local list = movie_service:list(args)
-	local context = {list = list, pageNo = tonumber(args["pageNo"])+1, keyword = args["keyword"] }
+	local context = { list = list }
 	
-	-- 增加热门文章数据
-	context["hotList"] = common_service:hotList()
-	template.render("blog/search.html", context)
+	-- 设置分页内容
+	local count = movie_service:count(args)
+	local page = common_service:generatePage(args["pageNo"], args["pageSize"], tonumber(count))
+	context['page'] = page
+	-- 增加热搜关键词
+	context["searchList"] = hot_search_service:list()
+	-- ngx.log(ngx.ERR, "++++++++++++ " .. cjson.encode(page))
+
+	-- 封装搜索条件
+	context['args'] = args
+
+	template.render("search.html", context)
 end
 
 -- 片库页
@@ -119,7 +129,7 @@ function _M:repertory()
 	end
 
 	local list = movie_service:list(args)
-	local context = {list = list, pageNo = tonumber(args["pageNo"])+1}
+	local context = { list = list }
 	
 	-- 设置分页内容
 	local count = movie_service:count(args)
@@ -139,6 +149,43 @@ function _M:repertory()
 	template.render("list.html", context)
 end
 
+-- 电视剧列表页
+function _M:drama()
+	local args = req.getArgs()
+	local pageNo = args["pageNo"]
+	local region = args["region"]
+	local year = args["year"]
+
+	if pageNo == nil or pageNo == "" then
+		args["pageNo"] = 1
+	end
+	args["pageSize"] = 20
+	args["classify"] = '2'
+	args["sort"] = '1'
+	if region == nil or region == "" then
+		args["region"] = '-1'
+	end
+	if year == nil or year == "" then
+		args["year"] = '-1'
+	end
+
+	local list = movie_service:list(args)
+	local context = {list = list}
+	
+	-- 设置分页内容
+	local count = movie_service:count(args)
+	local page = common_service:generatePage(args["pageNo"], args["pageSize"], tonumber(count))
+	context['page'] = page
+	-- 增加热搜关键词
+	context["searchList"] = hot_search_service:list()
+
+	-- 封装搜索条件
+	context['args'] = args
+	-- 获取地区列表
+	context['regionList'] = region_service:top10()
+
+	template.render("drama.html", context)
+end
 
 -- 影片详情页
 function _M:detail()
@@ -156,7 +203,7 @@ function _M:detail()
 	-- 增加热搜关键词
 	context["searchList"] = hot_search_service:list()
 	-- 增加下载链接
-	context['urlList'] = download_url_service:list(1, movieId)
+	context['urlList'] = download_url_service:list(movieId)
 	-- 增加猜你喜欢
 	context['likeList'] = movie_service:like(entity['type'])
 

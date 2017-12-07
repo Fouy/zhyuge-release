@@ -42,8 +42,13 @@
 									<img src="{* entity.logo_url *}" title="海报" alt="{* entity.name *}" style="width: 100px; height: 139px;">
 								</div>
 								<div id="info">
-									<span class="pl">评分:</span> <span class="allstar45"></span> 
-									<span class="rating_nums">{* entity.score *}</span><br>
+									<span class="pl">评分:</span> 
+									{% if entity.score == nil or entity.score == "" then %}
+										<span class="rating_nums">暂无评分</span><br>
+									{% else %}
+										<span class="allstar{* entity.scoreimg *}"></span>
+										<span class="rating_nums">{* entity.score *}</span><br>
+									{% end %}
 
 									<span>
 										<span class="pl">导演</span>: 

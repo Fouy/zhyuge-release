@@ -109,10 +109,10 @@ function _M:list( args )
 	end
 
 	-- 排序
-	if sort == '1' then 
-		sql = sql .. ' order by movie_id desc '
-	else
+	if sort == '2' then 
 		sql = sql .. ' order by score desc '
+	else
+		sql = sql .. ' order by movie_id desc '
 	end
 
 	-- 分页
@@ -200,7 +200,7 @@ function _M:count( args )
 	return res[1]['count']
 end
 
--- 高分电影
+-- 高分电影（主页）
 function _M:highmarks()
 	local param = {pageSize=10}
 	param["score"] = '8'
@@ -216,34 +216,21 @@ function _M:highmarks()
 
 	math.randomseed(os.time())
 	param['pageNo'] = math.random(1, pageNo)
-	-- ngx.log(ngx.ERR, "**************" .. param['pageNo'])
 
 	local list = self:list(param)
 	return list
 end
 
--- 电视剧更新
-function _M:dramarenewal()
-	local param = {pageSize=10}
-	param["score"] = '8'
-	param['classify'] = '1'
-	
-	local count = self:count(param)
-	local pageNo = 1
-	if count % 10 == 0 then
-		pageNo = count / 10
-	else
-		pageNo = count / 10 + 1
-	end
+-- 电视剧更新（主页）
+function _M:dramaindex()
+	local param = {}
+	param["pageNo"] = 1
+	param["pageSize"] = 10
+	param["classify"] = '2'
+	param["sort"] = '1'
 
-	math.randomseed(os.time())
-	param['pageNo'] = math.random(1, pageNo)
-	-- ngx.log(ngx.ERR, "**************" .. param['pageNo'])
-
-	local list = self:list(param)
-	return list
+	return self:list(param)
 end
-
 
 -- 查询近期热播
 function _M:hot()
@@ -313,6 +300,7 @@ end
 
 -- 实体转化
 function _M.convert( entity )
+	-- 设置分类名称
 	if entity["type_ids"] then
 		local typeList = string_util:strSplit(entity["type_ids"], ',')
 		local typeNames = ''
@@ -348,6 +336,18 @@ function _M.convert( entity )
 		entity["station_name"] = stationEntity["name"]
 		entity["station_type"] = stationEntity["type"]
 	end
+	-- 设置评分(当score在MySQL中为null时，entity['score']的类型为userdata，暂时不知道如何转化)
+	if type(entity['score']) ~= 'userdata' and entity['score'] ~= "" then
+		-- ngx.log(ngx.ERR,  entity['score'])
+		if entity['score'] % 2 == 0 then
+			entity['scoreimg'] = entity['score'] * 5
+		else
+			entity['scoreimg'] = math.floor(entity['score']/2) * 10 + 5
+		end
+	else
+		entity['score'] = nil
+	end
+
 end
 
 

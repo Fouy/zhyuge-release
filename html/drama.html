@@ -5,7 +5,7 @@
 
 <meta name="renderer" content="webkit">
 <meta name="referrer" content="always">
-<title>章鱼哥电影片库</title>
+<title>电视剧更新列表 - 章鱼哥电影</title>
 <meta http-equiv="Pragma" content="no-cache">
 <meta name="keywords" content="章鱼哥,喵爪,阳光电影,电影天堂,电影,经典电影,资源,下载,迅雷下载,排行,电影推荐,影视大全">
 <meta name="description" content="章鱼哥电影提供最新的电影下载地址以及热门、高分、好玩的电影推荐,无论您喜欢哪种类型,章鱼哥电影都会定期给你推荐哦。">
@@ -19,24 +19,11 @@
 <script>
 	var pageNo = {* args.pageNo *}
 
-	var classify = {* args.classify *};
-	var type = {* args.type *};
 	var region = {* args.region *};
 	var year = {* args.year *};
-	var sort = {* args.sort *};
 
 	function choose_page(n_pageNo) {
 		pageNo = n_pageNo;
-		redirect();
-	}
-	function choose_classify(n_classify) {
-		classify = n_classify;
-		pageNo = 1;
-		redirect();
-	}
-	function choose_type(n_type) {
-		type = n_type;
-		pageNo = 1;
 		redirect();
 	}
 	function choose_region(n_region) {
@@ -49,17 +36,12 @@
 		pageNo = 1;
 		redirect();
 	}
-	function choose_sort(n_sort) {
-		sort = n_sort;
-		pageNo = 1;
-		redirect();
-	}
 	function redirect() {
-		window.location.href = '/movie/repertory?pageNo='+pageNo + '&classify='+classify + '&type='+type + '&region='+region
-				+ '&year='+year + '&sort='+sort;
+		window.location.href = '/movie/drama?pageNo='+pageNo + '&region='+region + '&year='+year;
 	}
+
 	$(document).ready(function() {
-		$("#repertory").addClass("current");
+		$("#drama").addClass("current");
 	});
 </script>
 
@@ -74,18 +56,6 @@
 			<div class="grid-16-8 clearfix">
 				<div class="article">
 					<div class="condition">
-						<div class="item_box">
-							<span class="tip">分&nbsp;&nbsp;类&nbsp;&nbsp;|</span>
-							<a {% if args['classify'] == '1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_classify(1)">电影</a>
-							<a {% if args['classify'] == '2' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_classify(2)">电视剧</a>
-						</div>
-						<div class="item_box">
-							<span class="tip">类&nbsp;&nbsp;型&nbsp;&nbsp;|</span> 
-							<a {% if args['type'] == '-1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_type(-1)">全部</a>
-							{% for i, v in ipairs(typeList) do %}
-							<a {% if tonumber(args['type']) == v['type_id'] then %} style="color: #00a1d6;" {% end %} href="javascript:choose_type({* v.type_id *})">{* v.name *}</a>
-							{% end %}
-						</div>
 						<div class="item_box">
 							<span class="tip">地&nbsp;&nbsp;区&nbsp;&nbsp;|</span>
 							<a {% if args['region'] == '-1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_region(-1)">全部</a>
@@ -110,11 +80,6 @@
 							<a {% if args['year'] == '2006' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2006)">2006</a>
 							<a {% if args['year'] == '2005' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2005)">2005</a>
 						</div>
-						<div class="item_box">
-							<span class="tip">排&nbsp;&nbsp;序&nbsp;&nbsp;|</span>
-							<a {% if args['sort'] == '1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_sort(1)">最新</a> 
-							<a {% if args['sort'] == '2' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_sort(2)">评分</a>
-						</div>
 					</div>
 
 					<div class="">
@@ -133,6 +98,7 @@
 											<a href="/movie/detail?movieId={* v.movie_id *}" target="_blank" class=""> 
 												<span style="font-size: 13px;"> {* v.name *} / {* v.en_name *} </span>
 											</a> 
+											<span class="flag">[第{* v.length *}集]</span>
 											<span class="flag">[可下载]</span>
 											<p class="pl">
 												◎上映时间: {* v.release_date *} ◎类型: {* v.type_names *} ◎国家: {* v.region_names *} <br>
