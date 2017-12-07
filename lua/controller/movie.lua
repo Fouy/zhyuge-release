@@ -187,6 +187,38 @@ function _M:drama()
 	template.render("drama.html", context)
 end
 
+-- 排行榜页
+function _M:ranking()
+	local args = req.getArgs()
+	local pageNo = args["pageNo"]
+	local year = args["year"]
+
+	if pageNo == nil or pageNo == "" then
+		args["pageNo"] = 1
+	end
+	args["pageSize"] = 20
+	args["classify"] = '1'
+	if year == nil or year == "" then
+		args["year"] = '-1'
+	end
+
+	local list = movie_service:list(args)
+	local context = { list = list }
+	
+	-- 设置分页内容
+	local count = movie_service:count(args)
+	local page = common_service:generatePage(args["pageNo"], args["pageSize"], tonumber(count))
+	context['page'] = page
+	-- 增加热搜关键词
+	context["searchList"] = hot_search_service:list()
+	-- ngx.log(ngx.ERR, "++++++++++++ " .. cjson.encode(page))
+
+	-- 封装搜索条件
+	context['args'] = args
+
+	template.render("ranking.html", context)
+end
+
 -- 影片详情页
 function _M:detail()
 	local args = req.getArgs()

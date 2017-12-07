@@ -35,8 +35,8 @@ h1 .year {
 }
 
 #content h2 {
-    color: #00a1d6;
-    border-bottom: 1px solid #00a1d6;
+    color: #222;
+    border-bottom: 1px solid #FF0033;
     padding-bottom: 5px;
     padding-left: 5px;
     margin-bottom: 20px;
@@ -108,7 +108,7 @@ button {
 }
 
 .copy-btn {
-    background: #00a1d6;
+    background: #FF0033;
     color: #fff;
 }
 
@@ -118,7 +118,7 @@ button {
 }
 
 .copy-btn:hover {
-    background: #0e7ea2;
+    background: #0099FF;
 }
 
 .copy-success {

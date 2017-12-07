@@ -58,31 +58,32 @@
 					<div class="condition">
 						<div class="item_box">
 							<span class="tip">地&nbsp;&nbsp;区&nbsp;&nbsp;|</span>
-							<a {% if args['region'] == '-1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_region(-1)">全部</a>
+							<a {% if args['region'] == '-1' then %} style="color: #FF0033;" {% end %} href="javascript:choose_region(-1)">全部</a>
 							{% for i, v in ipairs(regionList) do %}
-							<a {% if tonumber(args['region']) == v['region_id'] then %} style="color: #00a1d6;" {% end %} href="javascript:choose_region({* v.region_id *})">{* v.name *}</a>
+							<a {% if tonumber(args['region']) == v['region_id'] then %} style="color: #FF0033;" {% end %} href="javascript:choose_region({* v.region_id *})">{* v.name *}</a>
 							{% end %}
 						</div>
 						<div class="item_box">
 							<span class="tip">年&nbsp;&nbsp;份&nbsp;&nbsp;|</span> 
-							<a {% if args['year'] == '-1' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(-1)">全部</a>
-							<a {% if args['year'] == '2017' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2017)">2017</a>
-							<a {% if args['year'] == '2016' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2016)">2016</a>
-							<a {% if args['year'] == '2015' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2015)">2015</a>
-							<a {% if args['year'] == '2014' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2014)">2014</a>
-							<a {% if args['year'] == '2013' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2013)">2013</a>
-							<a {% if args['year'] == '2012' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2012)">2012</a>
-							<a {% if args['year'] == '2011' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2011)">2011</a>
-							<a {% if args['year'] == '2010' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2010)">2010</a>
-							<a {% if args['year'] == '2009' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2009)">2009</a>
-							<a {% if args['year'] == '2008' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2008)">2008</a>
-							<a {% if args['year'] == '2007' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2007)">2007</a>
-							<a {% if args['year'] == '2006' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2006)">2006</a>
-							<a {% if args['year'] == '2005' then %} style="color: #00a1d6;" {% end %} href="javascript:choose_year(2005)">2005</a>
+							<a {% if args['year'] == '-1' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(-1)">全部</a>
+							<a {% if args['year'] == '2017' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2017)">2017</a>
+							<a {% if args['year'] == '2016' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2016)">2016</a>
+							<a {% if args['year'] == '2015' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2015)">2015</a>
+							<a {% if args['year'] == '2014' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2014)">2014</a>
+							<a {% if args['year'] == '2013' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2013)">2013</a>
+							<a {% if args['year'] == '2012' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2012)">2012</a>
+							<a {% if args['year'] == '2011' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2011)">2011</a>
+							<a {% if args['year'] == '2010' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2010)">2010</a>
+							<a {% if args['year'] == '2009' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2009)">2009</a>
+							<a {% if args['year'] == '2008' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2008)">2008</a>
+							<a {% if args['year'] == '2007' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2007)">2007</a>
+							<a {% if args['year'] == '2006' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2006)">2006</a>
+							<a {% if args['year'] == '2005' then %} style="color: #FF0033;" {% end %} href="javascript:choose_year(2005)">2005</a>
 						</div>
 					</div>
 
 					<div class="">
+					{% if table.getn(list) > 0 then %}
 						{% for i, v in ipairs(list) do %}
 						<div class="ul"></div>
 						<table width="100%" class="" style="border-collapse: separate; border-spacing: 0 10px;">
@@ -118,6 +119,13 @@
 							</tbody>
 						</table>
 						{% end %}
+					{% else %}
+						<center>
+						<br><br><br>
+						<img src="/img/no.png" style="width: 100px;"> <br>
+						<span style="list-style-type:none; list-style-image:none; list-style-position:outside; font-size:14px; line-height: 32px;">没有找到相关资源, 请修改筛选条件‘(*>﹏<*)′</span>
+						</center>
+					{% end %}
 					</div>
 
 					<div class="paginator">

@@ -24,7 +24,7 @@
 					<li class="cinema-item">
 						<p style="font-size: 13px; margin: 5px 0">
 							<a target="_blank" href="/movie/detail?movieId={* v.movie_id *}">[{* v.name *}] 
-							[<font color="#00a1d6">{* v.score *}</font>] [{* v.region_names *}] [{* v.year *}] [{* v.type_names *}]
+							[<font color="#FF0033">{* v.score *}</font>] [{* v.region_names *}] [{* v.year *}] [{* v.type_names *}]
 							</a>
 						</p>
 					</li>
@@ -46,7 +46,7 @@
 					{% for i, v in ipairs(dramaList) do %}
 					<li class="cinema-item">
 						<p style="font-size: 13px; margin: 5px 0">
-							<a target="_blank" href="/movie/detail?movieId={* v.movie_id *}">[{* v.name *}] [{* v.region_names *}] [<font color="#00a1d6">第{* v.length *}集</font>]</a> 
+							<a target="_blank" href="/movie/detail?movieId={* v.movie_id *}">[{* v.name *}] [{* v.region_names *}] [<font color="#FF0033">第{* v.length *}集</font>]</a> 
 							<span style="display: none;"></span>
 						</p>
 					</li>

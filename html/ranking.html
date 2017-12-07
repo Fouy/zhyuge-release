@@ -5,26 +5,17 @@
 
 <meta name="renderer" content="webkit">
 <meta name="referrer" content="always">
-<meta name="uyan_auth" content="759eb15c0e">
-<meta name="baidu-site-verification" content="feKHyIXTS5">
-<title>2015票房排行榜 - 喵爪电影</title>
+<title>2015票房排行榜 - 章鱼哥电影</title>
 <meta http-equiv="Pragma" content="no-cache">
-<meta name="keywords" content="2016,2015,2014,年度电影排行">
-<meta name="description"
-	content="喵抓电影提供最新的电影下载地址以及热门、高分、好玩的电影推荐,无论您喜欢哪种类型,喵爪电影都会定期给你推荐哦。">
-<link rel="apple-touch-icon"
-	href="http://www.miao-z.com/static/portal/img/favicon.png">
-<link href="./2015票房排行榜 - 喵爪电影_files/main.css" rel="stylesheet"
-	type="text/css">
+<meta name="keywords" content="章鱼哥,喵爪,阳光电影,电影天堂,电影,经典电影,资源,下载,迅雷下载,排行,电影推荐,影视大全">
+<meta name="description" content="章鱼哥电影提供最新的电影下载地址以及热门、高分、好玩的电影推荐,无论您喜欢哪种类型,章鱼哥电影都会定期给你推荐哦。">
+<link rel="apple-touch-icon" href="/img/favicon.png">
+<link href="/css/main.css" rel="stylesheet" type="text/css">
 
+<script src="/js/jquery.min.js"></script>
+<link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
 
-<script src="./2015票房排行榜 - 喵爪电影_files/jquery.min.js"></script>
-<script type="text/javascript"></script>
-<link rel="shortcut icon"
-	href="http://www.miao-z.com/static/portal/img/favicon.png"
-	type="image/x-icon">
-
-<link rel="stylesheet" href="./2015票房排行榜 - 喵爪电影_files/list.css">
+<link rel="stylesheet" href="/css/list.css">
 <style type="text/css">
 .cinema-item {
 	border-bottom: 1px dashed #DDDDDD;
@@ -34,769 +25,114 @@
 </style>
 
 <script>
+	var pageNo = {* args.pageNo *}
+	var year = {* args.year *};
+
+	function choose_page(n_pageNo) {
+		pageNo = n_pageNo;
+		redirect();
+	}
+	function choose_year(n_year) {
+		year = n_year;
+		pageNo = 1;
+		redirect();
+	}
+	function redirect() {
+		window.location.href = '/movie/ranking?pageNo='+pageNo + '&year='+year;
+	}
+	
 	$(document).ready(function() {
-		$("#chart").addClass("current");
+		$("#ranking").addClass("current");
 	});
 </script>
 
 </head>
 <body>
-	<div id="db-nav-movie" class="nav">
-		<div class="nav-wrap" style="padding-top: 10px;">
-			<div class="nav-primary">
-				<div class="nav-logo">
-					<a href="http://www.miao-z.com/"><img
-						src="./2015票房排行榜 - 喵爪电影_files/logo.png"
-						style="width: 120px; height: 27px; margin-top: 12px;"></a>
-				</div>
-				<div class="nav-search">
-					<form action="http://www.miao-z.com/so" method="get">
-						<fieldset>
-							<input id="inp-query" name="q" size="22" maxlength="60" value=""
-								placeholder="电影、电视剧、演员、导演" autocomplete="off">
-							<button class="search-btn" type="submit" value="搜索"></button>
-						</fieldset>
-					</form>
-					<div class="star-search-tag">
-						<span class="hot-words" id="hws"><a class="hw"
-							href="http://www.miao-z.com/so?q=%E7%8C%A9%E7%90%83%E5%B4%9B%E8%B5%B7">猩球崛起</a><a
-							class="hw"
-							href="http://www.miao-z.com/so?q=%E8%A5%BF%E6%B8%B8%E4%BC%8F%E5%A6%96%E7%AF%87">西游伏妖篇</a><a
-							class="hw" href="http://www.miao-z.com/so?q=%E9%95%BF%E5%9F%8E">长城</a><a
-							class="hw"
-							href="http://www.miao-z.com/so?q=%E6%88%91%E7%9A%84%E5%89%8D%E5%8D%8A%E7%94%9F">我的前半生</a><a
-							class="hw"
-							href="http://www.miao-z.com/so?q=%E5%BC%82%E5%BD%A2%EF%BC%9A%E5%A5%91%E7%BA%A6">异形：契约</a><a
-							class="hw"
-							href="http://www.miao-z.com/so?q=%E5%88%BA%E5%AE%A2%E4%BF%A1%E6%9D%A1">刺客信条</a><a
-							class="hw"
-							href="http://www.miao-z.com/so?q=%E7%94%9F%E5%8C%96%E5%8D%B1%E6%9C%BA%EF%BC%9A%E7%BB%88%E7%AB%A0">生化危机：终章</a></span>
-					</div>
-					<script>
-						$.get("/hw", function(data, status) {
-							data = eval(data);
-							for (i = 0; i < data.length; i++) {
-								$("#hws").append(
-										'<a class="hw" href="/so?q=' + data[i]
-												+ '" class="hwa">' + data[i]
-												+ '</a>');
-							}
-						});
-					</script>
-				</div>
-			</div>
-		</div>
-		<div class="nav-sub-items">
-			<div class="nav-secondary">
-				<div class="nav-items nav-anon">
-					<ul>
-						<li><div id="index">
-								<a href="http://www.miao-z.com/">首页</a>
-							</div></li>
-						<li><div id="list">
-								<a href="http://www.miao-z.com/list">片库</a>
-							</div></li>
-						<li><div id="chart" class="current">
-								<a href="http://www.miao-z.com/chart">排行榜</a>
-							</div></li>
-						<li><div id="recs">
-								<a href="http://www.miao-z.com/recs">专辑</a>
-							</div></li>
-						<li><div id="tv">
-								<a href="http://www.miao-z.com/tv">电视剧</a>
-							</div></li>
-						<li><div id="topic">
-								<a href="http://www.miao-z.com/topic">叽里呱啦</a>
-							</div></li>
-						<!--<li><div id="vip"><a href="/vip"><font color='#fd4c5d'>免费会员</font></a></div></li>-->
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+	
+	{(header.html)}
 
 	<div id="wrapper">
-
-
-
 
 		<div id="content">
 			<div class="grid-16-8 clearfix">
 				<div class="article">
+
 					<div class="">
 						<h2>2015票房排行榜</h2>
 
+					{% if table.getn(list) > 0 then %}
+						{% for i, v in ipairs(list) do %}
 						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
+						<table width="100%" class="" style="border-collapse: separate; border-spacing: 0 10px;">
 							<tbody>
 								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/11293" title="港囧"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/11293.jpg" alt="港囧" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
+									<td width="100" valign="top">
+										<a class="nbg" href="/movie/detail?movieId={* v.movie_id *}" title="{* v.name *}" target="_blank">
+											<img src="{* v.logo_url *}" alt="{* v.name *}" class="" style="width: 90px; height: 130px">
+										</a>
+									</td>
 									<td valign="top">
 										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/11293" target="_blank"
-												class=""> <span style="font-size: 13px;"> 港囧 /
-													人再囧途之港囧 / 人在囧途之港囧 / 泰囧续集 / Lost In Hong Kong </span>
-											</a> <span class="flag">[可下载]</span>
+											<a href="/movie/detail?movieId={* v.movie_id *}" target="_blank" class=""> 
+												<span style="font-size: 13px;"> {* v.name *} / {* v.en_name *} </span>
+											</a> 
+											<span class="flag">[可下载]</span>
 											<p class="pl">
-												◎上映时间: 2015-09-25(中国大陆) ◎类型: 喜剧 ◎国家: 中国大陆 <br> ◎导演: 徐峥
-												◎主演:
-												徐峥,赵薇,包贝尔,杜鹃,葛民辉,李璨琛,潘虹,赵有亮,朱媛媛,王迅,冯勉恒,王晶,叶竞生,林晓峰,车保罗,苑琼丹,林雪,江约诚,郑丹瑞,田启文,吴耀汉,林路迪,詹瑞文,庄思敏,陶虹
+												◎上映时间: {* v.release_date *} ◎类型: {* v.type_names *} ◎国家: {* v.region_names *} <br>
+												◎导演: {* v.director *} ◎主演: {* v.actor *}
 											</p>
 											<div class="star clearfix">
-
-												<span class="allstar30"></span> <span class="rating_nums">5.7</span>
-
+												{% if v.score == nil or v.score == "" then %}
+													<span class="rating_nums">暂无评分</span>
+												{% else %}
+													<span class="allstar{* v.scoreimg *}"></span>
+													<span class="rating_nums">{* v.score *}</span>
+												{% end %}
 											</div>
 										</div>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/11296" title="夏洛特烦恼"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/11296.jpg" alt="夏洛特烦恼" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/11296" target="_blank"
-												class=""> <span style="font-size: 13px;"> 夏洛特烦恼 /
-													Goodbye Mr. Loser </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-09-30(中国大陆) ◎类型: 喜剧,爱情 ◎国家: 中国大陆 <br> ◎导演:
-												闫非,彭大魔 ◎主演: 沈腾,马丽,尹正,艾伦,王智,田雨,宋阳,常远,李萍,李立群,张一鸣,常世奎
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar40"></span> <span class="rating_nums">7.5</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/11530" title="煎饼侠"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/11530.jpg" alt="煎饼侠" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/11530" target="_blank"
-												class=""> <span style="font-size: 13px;"> 煎饼侠 /
-													屌丝男士大电影 / Jian Bing Man </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-07-17(中国大陆) ◎类型: 喜剧 ◎国家: 中国大陆 <br> ◎导演: 大鹏
-												◎主演:
-												大鹏,袁姗姗,柳岩,吴君如,曾志伟,岳云鹏,衣云鹤,梁超,潘斌龙,崔志佳,乔杉,郭采洁,邓超,尚格·云顿,小沈阳,宋小宝,刘晓光,王小利,陈思诚,林更新,陈羽凡,胡海泉,韩寒,陈赫,郑恺,包贝尔,郑伊健,陈小春,谢天华,林晓峰
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar35"></span> <span class="rating_nums">6.1</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/11532" title="蚁人"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/11532.jpg" alt="蚁人" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/11532" target="_blank"
-												class=""> <span style="font-size: 13px;"> 蚁人 /
-													蚁侠(港) / Antman </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-10-16(中国大陆) ◎类型: 动作,科幻,冒险 ◎国家: 美国 <br> ◎导演:
-												佩顿·里德 ◎主演:
-												保罗·路德,迈克尔·道格拉斯,伊万杰琳·莉莉,寇瑞·斯托尔,迈克尔·佩纳,大卫·达斯马齐连,朱迪·格雷尔,鲍比·坎纳瓦尔,约翰·斯拉特里,伍德·哈里斯,T.I.,海莉·阿特维尔,瓦内萨·罗斯,马丁·唐文,乔·克里斯特,艾比·莱德·弗特森,安东尼·麦凯,加勒特·莫里斯,尼尔·汉博格,鲁德·哈利特,斯坦·李,克里斯·埃文斯,塞巴斯蒂安·斯坦
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar40"></span> <span class="rating_nums">7.6</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/12198" title="澳门风云2"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/12198.jpg" alt="澳门风云2" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/12198" target="_blank"
-												class=""> <span style="font-size: 13px;"> 澳门风云2 /
-													The Man From Macau 2 / From Vegas to Macau 2 </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-02-19(中国大陆/香港) ◎类型: 喜剧,动作 ◎国家: 香港 / 中国大陆 <br>
-												◎导演: 王晶,张敏 ◎主演:
-												周润发,张家辉,刘嘉玲,余文乐,王诗龄,胡然,姜大卫,童菲,吴樾,金巧巧,黄德斌,姜皓文,曾国祥,袁泉,曾志伟,陈百祥,孟瑶,刘德华
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar30"></span> <span class="rating_nums">5.7</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/12201" title="西游记之大圣归来"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/12201.jpg" alt="西游记之大圣归来"
-											class="" style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/12201" target="_blank"
-												class=""> <span style="font-size: 13px;">
-													西游记之大圣归来 / 大圣归来 / 猴王 / 西游记3D / Monkey King: Hero is Back /
-													CUG: King of Heroes </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-07-10(中国大陆) ◎类型: 喜剧,动作,动画,奇幻 ◎国家: 中国大陆 <br>
-												◎导演: 田晓鹏 ◎主演: 张磊,林子杰,吴文伦,童自荣,刘九容,吴迪,刘北辰,赵乾景,周帅
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar45"></span> <span class="rating_nums">8.2</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/12205" title="捉妖记"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/12205.jpg" alt="捉妖记" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/12205" target="_blank"
-												class=""> <span style="font-size: 13px;"> 捉妖记 /
-													聊斋之宅妖 / 聊斋之捉妖记 / Monster Hunt </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-07-16(中国大陆) ◎类型: 喜剧,奇幻,古装 ◎国家: 中国大陆 / 香港 <br>
-												◎导演: 许诚毅 ◎主演:
-												白百何,井柏然,姜武,金燕玲,钟汉良,曾志伟,吴君如,汤唯,姚晨,闫妮,保剑锋,王栎鑫,郭晓东,李菁菁,田雨橙,张悦轩
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar35"></span> <span class="rating_nums">6.8</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/12285" title="唐人街探案"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/12285.jpg" alt="唐人街探案" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/12285" target="_blank"
-												class=""> <span style="font-size: 13px;"> 唐人街探案 /
-													唐人街·探案 / Detective Chinatown </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-12-31(中国大陆) ◎类型: 喜剧,动作,悬疑 ◎国家: 中国大陆 <br>
-												◎导演: 陈思诚 ◎主演:
-												王宝强,刘昊然,佟丽娅,陈赫,肖央,小沈阳,潘粤明,马浴柯,张子枫,赵英俊,桑平,金士杰,大鹏,张国强,李叶青,陈祉希
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar40"></span> <span class="rating_nums">7.5</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/13388" title="碟中谍5：神秘国度"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/13388.jpg" alt="碟中谍5：神秘国度"
-											class="" style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/13388" target="_blank"
-												class=""> <span style="font-size: 13px;">
-													碟中谍5：神秘国度 / 职业特工队5：叛逆帝国(港) / 不可能的任务：失控国度(台) / 碟中谍：失控国度 /
-													碟中谍5 / Mission: Impossible 5 / M:i 5 </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-09-08(中国大陆) ◎类型: 动作,惊悚,冒险 ◎国家: 美国 / 香港 / 中国大陆 <br>
-												◎导演: 克里斯托弗·麦奎里 ◎主演:
-												汤姆·克鲁斯,杰瑞米·雷纳,西蒙·佩吉,丽贝卡·弗格森,文·瑞姆斯,西恩·哈里斯,西蒙·迈克伯尼,张静初,汤姆·霍兰德,延斯·赫尔腾,亚历克·鲍德温,亚历克·乌特戈夫,赫敏·科菲尔德,阿美莉嘉·奥利沃,拉斯科·阿特金斯,肖恩·克罗宁,明格斯·约翰斯顿
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar40"></span> <span class="rating_nums">7.7</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/13389" title="老炮儿"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/13389.jpg" alt="老炮儿" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/13389" target="_blank"
-												class=""> <span style="font-size: 13px;"> 老炮儿 /
-													Mr. Six / Fading Wave </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-12-24(中国大陆) ◎类型: 剧情,犯罪 ◎国家: 中国大陆 <br> ◎导演:
-												管虎 ◎主演:
-												冯小刚,许晴,张涵予,刘桦,李易峰,吴亦凡,梁静,白举纲,于和伟,连奕名,尚语贤,鲁诺,管宗祥,尹力,余皑磊,宁浩,江珊,张译,郭京飞,张鲁一,赵毅,梁天,张一山,王俊凯,王源,易烊千玺,巴图
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar45"></span> <span class="rating_nums">8.1</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/13410" title="侏罗纪世界"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/13410.jpg" alt="侏罗纪世界" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/13410" target="_blank"
-												class=""> <span style="font-size: 13px;"> 侏罗纪世界 /
-													侏罗纪公园4 / Jurassic Park IV / Jurassic Park 4 </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-06-10(中国大陆) ◎类型: 动作,科幻,冒险 ◎国家: 美国 / 中国大陆 <br>
-												◎导演: 科林·特雷沃罗 ◎主演:
-												克里斯·普拉特,布莱丝·达拉斯·霍华德,文森特·多诺费奥,泰·辛普金斯,尼克·罗宾森,奥玛·赛,黄荣亮,伊尔凡·可汗,朱迪·格雷尔,杰克·约翰逊,劳伦·拉普库斯,凯蒂·麦克格拉思,布莱恩·泰,埃迪·J.费尔南德斯,因德尔·库马尔,安迪·巴克利,吉米·法伦
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar40"></span> <span class="rating_nums">7.7</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/13424" title="速度与激情7"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/13424.jpg" alt="速度与激情7"
-											class="" style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/13424" target="_blank"
-												class=""> <span style="font-size: 13px;"> 速度与激情7
-													/ 狂野时速7(港) / 玩命关头7(台) / Fast &amp; Furious 7 </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-04-12(中国大陆) ◎类型: 动作,惊悚,犯罪 ◎国家: 美国 / 中国大陆 / 日本 <br>
-												◎导演: 温子仁 ◎主演:
-												范·迪塞尔,保罗·沃克,杰森·斯坦森,米歇尔·罗德里格兹,乔丹娜·布鲁斯特,泰瑞斯·吉布森,卢达克里斯,道恩·强森,卢卡斯·布莱克,库尔特·拉塞尔,娜塔莉·伊曼纽尔,埃尔莎·帕塔奇,盖尔·加朵,约翰·布罗特顿,卢克·伊万斯,托尼·贾,杰曼·翰苏,诺尔·古格雷米,阿里·扎勒,姜成镐,龙达·鲁西,伊吉·阿德利亚,乔恩·李·布罗迪
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar45"></span> <span class="rating_nums">8.3</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/13439" title="霍比特人3：五军之战"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/13439.jpg" alt="霍比特人3：五军之战"
-											class="" style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/13439" target="_blank"
-												class=""> <span style="font-size: 13px;">
-													霍比特人3：五军之战 / 哈比人：五军之战(港台) / 哈比人：奇境再返(台) / 哈比人：汗血回归 /
-													指环王前传：霍比特人(下) / 霍比特人3：去而复返 / There and Back Again </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-01-23(中国大陆) ◎类型: 动作,奇幻,冒险 ◎国家: 美国 / 新西兰 <br>
-												◎导演: 彼得·杰克逊 ◎主演:
-												马丁·弗瑞曼,伊恩·麦克莱恩,理查德·阿米蒂奇,伊万杰琳·莉莉,李·佩斯,卢克·伊万斯,本尼迪克特·康伯巴奇,肯·斯托特,詹姆斯·内斯比特,比利·康诺利,凯特·布兰切特,伊安·霍姆,克里斯托弗·李,雨果·维文,奥兰多·布鲁姆,马努·贝内特,艾丹·特纳,迪恩·奥戈曼,格拉汉姆·麦克泰维什,斯蒂芬·弗雷,米卡埃尔·佩斯布兰特
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar45"></span> <span class="rating_nums">8.2</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/14003" title="寻龙诀"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/14003.jpg" alt="寻龙诀" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/14003" target="_blank"
-												class=""> <span style="font-size: 13px;"> 寻龙诀 /
-													乌尔善版鬼吹灯 / 鬼吹灯之寻龙诀 / 鬼吹灯 / The Ghouls / Mojin - The Lost
-													Legend </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-12-18(中国大陆) ◎类型: 剧情,动作,奇幻,冒险 ◎国家: 中国大陆 / 香港 <br>
-												◎导演: 乌尔善 ◎主演: 陈坤,黄渤,舒淇,杨颖,夏雨,刘晓庆,颜卓灵,曹操,张东,黄西,僧格仁钦
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar40"></span> <span class="rating_nums">7.6</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/14931" title="终结者：创世纪"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/14931.jpg" alt="终结者：创世纪"
-											class="" style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/14931" target="_blank"
-												class=""> <span style="font-size: 13px;"> 终结者：创世纪
-													/ 终结者5 / 未来战士：创世智能(港) / 魔鬼终结者：创世契机(台) / 终结者：创世 / 终结者：造物主 /
-													Terminator 5 / Terminator: Genesis </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-08-23(中国大陆) ◎类型: 动作,科幻,冒险 ◎国家: 美国 <br> ◎导演:
-												阿兰·泰勒 ◎主演:
-												阿诺·施瓦辛格,杰森·克拉科,艾米莉亚·克拉克,杰·科特尼,J·K·西蒙斯,戴奥·奥柯奈伊,马特·史密斯,考特尼·万斯,李秉宪,迈克尔·盖拉迪斯,何家蓓,韦恩·巴斯楚普,格雷戈里·艾伦·威廉斯,奥托·桑切斯,马蒂·费拉罗,格里夫·弗斯特,伊恩·埃瑟里奇,诺兰·格罗斯,塞思·梅里韦瑟,阿非莫·奥米拉,特瑞·韦伯,凯莉·奥马利
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar35"></span> <span class="rating_nums">6.9</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/15090" title="复仇者联盟2：奥创纪元"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/15090.jpg" alt="复仇者联盟2：奥创纪元"
-											class="" style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/15090" target="_blank"
-												class=""> <span style="font-size: 13px;">
-													复仇者联盟2：奥创纪元 / 复仇者联盟2 / 复仇者联盟：奥创时代 / 复仇者联盟：奥创年代 / 复联2 /
-													Marvel Avengers: Age of Ultron / The Avengers 2 / After
-													Party </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-05-12(中国大陆) ◎类型: 动作,科幻,奇幻,冒险 ◎国家: 美国 <br>
-												◎导演: 乔斯·韦登 ◎主演:
-												小罗伯特·唐尼,克里斯·海姆斯沃斯,马克·鲁弗洛,克里斯·埃文斯,斯嘉丽·约翰逊,杰瑞米·雷纳,詹姆斯·斯派德,塞缪尔·杰克逊,唐·钱德尔,亚伦·泰勒-约翰逊,伊丽莎白·奥尔森,保罗·贝坦尼,寇碧·史莫德斯,安东尼·麦凯,海莉·阿特维尔,伊德里斯·艾尔巴,斯特兰·斯卡斯加德,金秀贤,托马斯·克莱舒曼,安迪·瑟金斯,朱莉·德尔佩,斯坦·李,亨利·古德曼,多米尼克·普罗沃斯特-切克利,艾萨克·安德鲁斯
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar40"></span> <span class="rating_nums">7.1</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/15290" title="九层妖塔"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/15290.jpg" alt="九层妖塔" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/15290" target="_blank"
-												class=""> <span style="font-size: 13px;"> 九层妖塔 /
-													陆川版鬼吹灯 / 鬼吹灯之九层妖塔 / 吹灯传说之精绝古城 / 鬼吹灯 / Chronicles of the
-													Ghostly Tribe </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-09-30(中国大陆) ◎类型: 动作,惊悚,冒险 ◎国家: 中国大陆 <br>
-												◎导演: 陆川 ◎主演: 赵又廷,姚晨,凤小岳,李晨,唐嫣,冯瓅,李光洁,王庆祥,吴军,王德顺
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar25"></span> <span class="rating_nums">4.3</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/15331" title="天将雄师"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/15331.jpg" alt="天将雄师" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/15331" target="_blank"
-												class=""> <span style="font-size: 13px;"> 天将雄师 /
-													天将雄狮 / 天降雄狮 / Dragon Blade </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-02-19(中国大陆) ◎类型: 动作,战争,古装 ◎国家: 中国大陆 / 香港 <br>
-												◎导演: 李仁港 ◎主演:
-												成龙,约翰·库萨克,艾德里安·布洛迪,崔始源,林鹏,王若心,肖央,王太利,洪天照,刘承俊,萝莉·佩斯特,冯绍峰,吴建豪,林嘉欣,沙妮·文森,西蒙子
-											</p>
-											<div class="star clearfix">
-
-												<span class="allstar30"></span> <span class="rating_nums">5.9</span>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/18311" title="恶棍天使"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/18311.jpg" alt="恶棍天使" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/18311" target="_blank"
-												class=""> <span style="font-size: 13px;"> 恶棍天使 /
-													Devil and Angel </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-12-24(中国大陆) ◎类型: 喜剧 ◎国家: 中国大陆 <br> ◎导演:
-												俞白眉,邓超 ◎主演: 邓超,孙俪,代乐乐,梁超,杨新鸣,王砚辉,许可嘉,赵曼竹,栾元晖,张鹭,王双宝
-											</p>
-											<div class="star clearfix">
-												<span class="allstar20"></span> <span class="rating_nums">4.0</span>
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="ul"></div>
-						<table width="100%" class=""
-							style="border-collapse: separate; border-spacing: 0 10px;">
-							<tbody>
-								<tr class="item">
-									<td width="100" valign="top"><a class="nbg"
-										href="http://www.miao-z.com/detail/19713" title="狼图腾"
-										target="_blank"> <img
-											src="./2015票房排行榜 - 喵爪电影_files/19713.jpg" alt="狼图腾" class=""
-											style="width: 90px; height: 130px">
-									</a></td>
-									<td valign="top">
-										<div class="pl2" style="margin-left: 10px;">
-											<a href="http://www.miao-z.com/detail/19713" target="_blank"
-												class=""> <span style="font-size: 13px;"> 狼图腾 /
-													Le Dernier Loup / Wolf Totem </span>
-											</a> <span class="flag">[可下载]</span>
-											<p class="pl">
-												◎上映时间: 2015-02-19(中国大陆) ◎类型: 剧情,冒险 ◎国家: 中国大陆 / 法国 <br>
-												◎导演: 让-雅克·阿诺 ◎主演: 冯绍峰,窦骁,昂哈妮玛,巴森,尹铸胜,黄小蕾
-											</p>
-											<div class="star clearfix">
-												<span class="allstar35"></span> <span class="rating_nums">7.0</span>
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+						{% end %}
+					{% else %}
+						<center>
+						<br><br><br>
+						<img src="/img/no.png" style="width: 100px;"> <br>
+						<span style="list-style-type:none; list-style-image:none; list-style-position:outside; font-size:14px; line-height: 32px;">没有找到相关资源, 请修改筛选条件‘(*>﹏<*)′</span>
+						</center>
+					{% end %}
 					</div>
 
-					<div class="paginator">
-						<span class="prev"> &lt;前页 </span> <span class="thispage">1</span>
-						&nbsp; <a href="http://www.miao-z.com/chart?&amp;pn=2">2</a>&nbsp;
-						&nbsp; <a href="http://www.miao-z.com/chart?&amp;pn=3">3</a>&nbsp;
-						&nbsp; <a href="http://www.miao-z.com/chart?&amp;pn=4">4</a>&nbsp;
-						<span class="next"> <a
-							href="http://www.miao-z.com/chart?&amp;pn=2">后页&gt;</a>
 
-						</span>
+					<div class="paginator">
+					{% if page then %}
+						{% if page['prev'] then %}
+							<span class="prev"> 
+								<a href="javascript:choose_page({* page['prev'] *})"> &lt;上一页 </a>
+							</span>
+						{% end %}
+
+						{% for i, v in ipairs(page['pageList']) do %}
+							{% if v == tonumber(page['current']) then %}
+							<span class="thispage">{* v *}</span> &nbsp; 
+							{% else %}
+							<a href="javascript:choose_page({* v *})">{* v *}</a>&nbsp; &nbsp; 
+							{% end %}
+						{% end %}
+						
+						{% if page['next'] then %}
+							<span class="next"> 
+								<a href="javascript:choose_page({* page['next'] *})">下一页&gt;</a>
+							</span>
+						{% end %}
+						
+					{% end %}
 					</div>
 
 				</div>
+
+				<!-- 侧边栏 -->
 				<div class="aside">
 					<div id="cinemas-section">
 						<div class="hd">
@@ -868,13 +204,8 @@
 			</div>
 		</div>
 
-		<div id="footer">
-			<div class="footer-extra"></div>
-			<span id="icp" class="fleft gray-link"> 2016
-				喵爪电影是影视作品搜索网站,所有影视资源均从互联网自动采集而来。本站仅提下载信息,不存放任何影视资源,所有影视版权归原权力人所有。<br>
-				任何问题&amp;合作请联系:t5721654@gmail.com <font color="#f8f8f8">喵爪,喵爪电影,猫爪电影,电影淘淘,迅播影院,电影天堂,迅雷之家,迅雷仓,bt天堂,飘花电影,迅雷下载</font>
-			</span> <br>
-		</div>
+		{(footer.html)}
+
 	</div>
 
 </body>

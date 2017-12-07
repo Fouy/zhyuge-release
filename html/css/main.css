@@ -213,7 +213,7 @@ fieldset, img {
     word-spacing: normal;
     height: 24px;
     line-height: 24px;
-    color: #37a;
+    color: #6d757a;
 }
 
 .list-item .stitle a:hover {
@@ -225,7 +225,7 @@ fieldset, img {
     line-height: 24px;
     color: #FFFFFF;
     text-decoration: none;
-    background: #37a;
+    background: #CC0033;
 }
 
 span.subject-rate, .rate, .subject-rating {
@@ -247,7 +247,7 @@ a:visited {
 }
 
 a:hover {
-    color: #00a1d6;
+    color: #FF0033;
     text-decoration: none;
 }
 
@@ -482,7 +482,7 @@ fieldset legend {
 .nav-search input {
     -webkit-appearance: none;
     height: 32px;
-    border: 1px solid #00a1d6;
+    border: 1px solid #FF0033;
     border-right: none;
     box-sizing: border-box;
     border-radius: 3px 0 0 3px;
@@ -503,7 +503,7 @@ fieldset legend {
     font-size: 14px;
     margin-left:-5px;
     vertical-align: top;
-    background: #00a1d6 url('/img/search-btn.png') no-repeat 13px 8px;
+    background: #FF0033 url('/img/search-btn.png') no-repeat 13px 8px;
     color: #fff;
     border-radius: 0 3px 3px 0;
     padding: 0;
@@ -512,7 +512,7 @@ fieldset legend {
 }
 
 .search-btn:hover {
-    background: #0e7ea2 url('/img/search-btn.png') no-repeat 13px 8px;
+    background: #CC0033 url('/img/search-btn.png') no-repeat 13px 8px;
 }
 
 .nav .nav-primary, .nav .nav-secondary {
@@ -554,16 +554,16 @@ fieldset legend {
 }
 
 #db-nav-movie a:hover, #db-nav-movie a:active {
-    color: #00a1d6;
+    color: #FF0033;
 }
 
 #db-nav-movie div.current {
     height: 38px;
-    border-bottom: 3px solid #00a1d6;
+    border-bottom: 3px solid #FF0033;
 }
 
 #db-nav-movie .current a {
-    color: #00a1d6;
+    color: #FF0033;
 }
 
 #hws a.hw {
@@ -571,7 +571,7 @@ fieldset legend {
 }
 
 #hws a.hw:hover {
-    color: #00a1d6;
+    color: #FF0033;
 }
 
 .pl {
@@ -598,7 +598,7 @@ fieldset legend {
 
 .paginator .thispage {
     color: #fff;
-    background-color: #649FC8;
+    background-color: #CC0033;
 }
 
 .paginator a, .thispage, .break {
