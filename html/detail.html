@@ -21,6 +21,9 @@
 
 	<script src="/js/share.js"></script>
 	<link rel="stylesheet" href="/css/share_style0_16.css">
+
+	<!-- 网站统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1271973312'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1271973312%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
 </head>
 
 <body>
@@ -39,7 +42,7 @@
 						<div class="subjectwrap clearfix">
 							<div class="subject clearfix">
 								<div id="mainpic" class="">
-									<img src="{* entity.logo_url *}" title="海报" alt="{* entity.name *}" style="width: 100px; height: 139px;">
+									<img src="{* entity.logo_url *}" title="海报" alt="{* entity.name *}" onerror="this.src='/img/img-err.png';" style="width: 146px; height: 210;">
 								</div>
 								<div id="info">
 									<span class="pl">评分:</span> 
@@ -154,7 +157,7 @@
 							<dl class="">
 								<dt>
 									<a href="/movie/detail?movieId={* v.movie_id *}"> 
-										<img src="{* v.logo_url *}" alt="{* v.name *}" class="">
+										<img src="{* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
 									</a>
 								</dt>
 								<dd>

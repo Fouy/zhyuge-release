@@ -9,6 +9,7 @@ local hot_search_service = require "service.hot_search_service"
 local download_url_service = require "service.download_url_service"
 local template = require("resty.template")
 local configCache = ngx.shared.configCache;
+local redis = require "libs.redis_iresty"
 
 local _M = {}
 
@@ -38,6 +39,9 @@ function _M:index()
 	context["scoreList"] = movie_service:highmarks()
 	-- 增加电视剧更新
 	context['dramaList'] = movie_service:dramaindex()
+	-- 获取排行榜
+	context['ranking'] = movie_service:ranking('1')
+	-- ngx.log(ngx.ERR, "+++++++++++++: ", cjson.encode(context))
 	
 	template.render("index.html", context)
 end
@@ -54,6 +58,7 @@ function _M:list()
 	if pageSize == nil or pageSize == "" then
 		args["pageSize"] = 20
 	end
+	args["classify"] = '1'
 
 	local list = movie_service:list(args)
 	ngx.say(cjson.encode(result:success("查询成功", list)))
@@ -231,6 +236,22 @@ function _M:detail()
 
 	local entity = movie_service:detail(movieId)
 	local context = {entity = entity}
+
+	-- 增加访问数量
+	local red = redis:new()
+	local typeKey = '1'
+	if entity['type'] == 2 then
+		typeKey = '2'
+	end
+	local ok, err = red:zincrby('day:rank:'..typeKey, 1, movieId)
+	red:expire('day:rank:'..typeKey, 1*24*3600)
+	local ok, err = red:zincrby('week:rank:'..typeKey, 1, movieId)
+	red:expire('week:rank:'..typeKey, 7*24*3600)
+	local ok, err = red:zincrby('month:rank:'..typeKey, 1, movieId)
+	red:expire('month:rank:'..typeKey, 31*24*3600)
+	if not ok then
+	    ngx.log(ngx.ERR, "failed to set ranking: ", err)
+	end
 
 	-- 增加热搜关键词
 	context["searchList"] = hot_search_service:list()

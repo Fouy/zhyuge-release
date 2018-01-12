@@ -1,6 +1,11 @@
 -- file name: resty/redis_iresty.lua
 local redis_c = require "resty.redis"
+local configCache = ngx.shared.configCache;
 
+local config = {
+    host = configCache:get("redis.host"),
+    port = configCache:get("redis.port")
+}
 
 local ok, new_tab = pcall(require, "table.new")
 if not ok or type(new_tab) ~= "function" then
@@ -65,7 +70,7 @@ end
 -- change connect address as you need
 function _M.connect_mod( self, redis )
     redis:set_timeout(self.timeout)
-    return redis:connect("127.0.0.1", 6379)
+    return redis:connect(config['host'], config['port'])
 end
 
 function _M.set_keepalive_mod( redis )

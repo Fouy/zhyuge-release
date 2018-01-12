@@ -64,6 +64,10 @@
 </script>
 
 </head>
+
+<!-- 网站统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1271973312'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1271973312%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+
 <body>
 	
 	{(header.html)}
@@ -126,7 +130,7 @@
 								<tr class="item">
 									<td width="100" valign="top">
 										<a class="nbg" href="/movie/detail?movieId={* v.movie_id *}" title="{* v.name *}" target="_blank">
-											<img src="{* v.logo_url *}" alt="{* v.name *}" class="" style="width: 90px; height: 130px">
+											<img src="{* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 90px; height: 130px">
 										</a>
 									</td>
 									<td valign="top">

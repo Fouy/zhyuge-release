@@ -24,7 +24,7 @@
 		<ul class="">
 			<li class="poster">
 				<a href="/movie/detail?movieId=${movie_id}" class="ticket-btn" target="_blank">
-					<img src="${logo_url}" alt="${name}" rel="nofollow" >
+					<img src="${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
 				</a>
 				<span class="right-cornor-tag">${release_date}</span>
 			</li>
@@ -43,7 +43,7 @@
 		<ul class="">
 			<li class="poster">
 				<a href="/movie/detail?movieId=${movie_id}" class="ticket-btn" target="_blank">
-					<img src="${logo_url}" alt="${title}" rel="nofollow" >
+					<img src="${logo_url}" alt="${title}" rel="nofollow" onerror="this.src='/img/img-err.png';">
 				</a>
 				<span class="right-cornor-tag">${release_date}</span>
 			</li>
@@ -129,6 +129,9 @@ function switch_rank(target) {
 }
 </script>
 
+<!-- 网站统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1271973312'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1271973312%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+
 </head>
 <body>
 	
@@ -154,7 +157,7 @@ function switch_rank(target) {
 									<ul>
 										<li class="poster">
 											<a href="/movie/detail?movieId={* v.movie_id *}" class="ticket-btn" target="_blank"> 
-												<img src="{* v.logo_url *}" alt="{* v.name *}" rel="nofollow">
+												<img src="{* v.logo_url *}" alt="{* v.name *}" rel="nofollow" onerror="this.src='/img/img-err.png';">
 											</a>
 										</li>
 										<li class="stitle">

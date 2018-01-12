@@ -6,6 +6,7 @@ local type_service = require("service.movie_type_service")
 local region_service = require("service.region_service")
 local station_service = require("service.station_service")
 local utf8sub = require("libs.utf8sub")
+local redis = require "libs.redis_iresty"
 
 local _M = {}
 
@@ -112,14 +113,14 @@ function _M:list( args )
 	if sort == '2' then 
 		sql = sql .. ' order by score desc '
 	else
-		sql = sql .. ' order by movie_id desc '
+		sql = sql .. ' order by release_date desc '
 	end
 
 	-- 分页
 	tempSql = " limit %d, %d "
 	tempSql = string.format(tempSql, start, pageSize)
 	sql = sql .. tempSql
-	ngx.log(ngx.ERR, "++++++++++++ " .. sql)
+	-- ngx.log(ngx.ERR, "++++++++++++ " .. sql)
 
 	db:query("SET NAMES utf8")
 	local res, err, errno, sqlstate = db:query(sql)
@@ -185,7 +186,7 @@ function _M:count( args )
 		sql = sql .. tempSql
 	end
 
-	ngx.log(ngx.ERR, "++++++++++++ " .. sql)
+	-- ngx.log(ngx.ERR, "++++++++++++ " .. sql)
 
 	db:query("SET NAMES utf8")
 	local res, err, errno, sqlstate = db:query(sql)
@@ -232,10 +233,10 @@ function _M:dramaindex()
 	return self:list(param)
 end
 
--- 查询近期热播
+-- 查询近期热播(电影)
 function _M:hot()
 	local db = mysql:new()
-	local sql = "select * from movie order by modify_time desc limit 4 "
+	local sql = "select * from movie where type = 1 order by modify_time desc limit 4 "
 
 	db:query("SET NAMES utf8")
 	local res, err, errno, sqlstate = db:query(sql)
@@ -251,6 +252,63 @@ function _M:hot()
 	end
 
 	return res
+end
+
+-- 查询排行榜 typeKey: 1 电影、2 电视剧
+function _M:ranking(typeKey)
+	local result = {}
+	local red = redis:new()
+
+	-- local res, err = red:zrevrange('day:rank:'..typeKey, 0, 20, 'withscores')
+	local res, err = red:zrevrange('day:rank:'..typeKey, 0, 20)
+	if not res then
+	    ngx.log(ngx.ERR, "failed to get day ranking: ", err)
+	    result['dayRank'] = {}
+	else
+		local temp = {}
+		for i,v in ipairs(res) do
+			local entity = self:detail(v)
+			local tempRes, tempErr = red:zscore('day:rank:'..typeKey, v)
+			-- ngx.log(ngx.ERR, "Get day score: ", cjson.encode(tempRes))
+			entity['downCount'] = tempRes
+			table.insert(temp, entity)
+		end
+		result['dayRank'] = temp
+	end
+	-- ngx.log(ngx.ERR, "Get day ranking: ", cjson.encode(res))
+
+	local res, err = red:zrevrange('week:rank:'..typeKey, 0, 20)
+	if not res then
+	    ngx.log(ngx.ERR, "failed to get week ranking: ", err)
+	    result['weekRank'] = {}
+	else
+		local temp = {}
+		for i,v in ipairs(res) do
+			local entity = self:detail(v)
+			local tempRes, tempErr = red:zscore('week:rank:'..typeKey, v)
+			entity['downCount'] = tempRes
+			table.insert(temp, entity)
+		end
+		result['weekRank'] = temp
+	end
+	-- ngx.log(ngx.ERR, "Get week ranking: ", cjson.encode(res))
+
+	local res, err = red:zrevrange('month:rank:'..typeKey, 0, 20)
+	if not res then
+	    ngx.log(ngx.ERR, "failed to get month ranking: ", err)
+	    result['monthRank'] = {}
+	else
+		local temp = {}
+		for i,v in ipairs(res) do
+			local entity = self:detail(v)
+			local tempRes, tempErr = red:zscore('month:rank:'..typeKey, v)
+			entity['downCount'] = tempRes
+			table.insert(temp, entity)
+		end
+		result['monthRank'] = temp
+	end
+	-- ngx.log(ngx.ERR, "Get month ranking: ", cjson.encode(res))
+	return result
 end
 
 -- 猜你喜欢
@@ -276,7 +334,8 @@ function _M:like(type)
 end
 
 -- 查询详情
-function _M.detail( self, movieId )
+function _M:detail( movieId )
+	-- ngx.log(ngx.ERR, "Detail ranking: ", movieId)
 	movieId = ngx.quote_sql_str(movieId)
 
 	local db = mysql:new()

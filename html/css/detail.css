@@ -80,13 +80,13 @@ h1 .year {
 }
 
 #recommendations .recommendations-bd dt {
-    height: 145px;
+    height: 170px;
     margin-bottom: 8px;
     overflow: hidden;
 }
 
 #recommendations .recommendations-bd dt, #recommendations .recommendations-bd dd {
-    width: 100px;
+    width: 115px;
 }
 
 #recommendations .recommendations-bd dd {
