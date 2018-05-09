@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="ua-mac ua-webkit">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="renderer" content="webkit">
+<meta name="referrer" content="always">
+<title>{* entity.name *} - 章鱼哥美女</title>
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="keywords" content="章鱼哥,章鱼哥美女,尤果网,依依社区,美女网,清纯图片,MM私房照,美女图片,性感美女,制服诱惑,唯美图片,火辣,美女,网友自拍">
+<meta name="description" content="章鱼哥图片提供最新的美女图片浏览,无论您喜欢哪种类型,章鱼哥都会定期给你推荐哦。">
+<link rel="apple-touch-icon" href="/img/favicon.png">
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="/js/jquery.min.js"></script>
+<link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+
+<link rel="stylesheet" href="/css/list.css">
+<script>
+	var pageNo = {* args.pageNo *}
+	var pictureId = {* args.pictureId *};
+
+	function choose_page(n_pageNo) {
+		pageNo = n_pageNo;
+		redirect();
+	}
+	
+	function redirect() {
+		window.location.href = '/picture/detail?pictureId='+pictureId + '&pageNo='+pageNo;
+	}
+</script>
+
+
+	<!-- Google广告 -->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({
+	    google_ad_client: "ca-pub-5119662046684335",
+	    enable_page_level_ads: true
+	  });
+	</script>
+
+</head>
+
+<body>
+	
+	{(header.html)}
+
+	<div id="wrapper">
+
+		<div id="content">
+			<div class="grid-16-8 clearfix">
+				<div class="article">
+
+					<div class="">
+					<h2 style="text-align: center; width: 120%">{* entity.name *}</h2>
+
+					{% if table.getn(list) > 0 then %}
+						{% for i, v in ipairs(list) do %}
+						<div class="ul"></div>
+						<img src="{* v.url *}" style="width: 120%" />
+						{% end %}
+					{% end %}
+					</div>
+
+					<div class="paginator">
+					{% if page then %}
+						{% if page['prev'] then %}
+							<span class="prev"> 
+								<a href="javascript:choose_page({* page['prev'] *})"> &lt;上一页 </a>
+							</span>
+						{% end %}
+
+						{% for i, v in ipairs(page['pageList']) do %}
+							{% if v == tonumber(page['current']) then %}
+							<span class="thispage">{* v *}</span> &nbsp; 
+							{% else %}
+							<a href="javascript:choose_page({* v *})">{* v *}</a>&nbsp; &nbsp; 
+							{% end %}
+						{% end %}
+						
+						{% if page['next'] then %}
+							<span class="next"> 
+								<a href="javascript:choose_page({* page['next'] *})">下一页&gt;</a>
+							</span>
+						{% end %}
+						
+					{% end %}
+					</div>
+				</div>
+
+				<div class="aside"></div>
+
+			</div>
+		</div>
+
+		{(footer.html)}
+
+	</div>
+
+<!-- 网站统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1271973312'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1271973312%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</body>
+</html>
