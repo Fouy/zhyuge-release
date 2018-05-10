@@ -26,7 +26,7 @@ function _M:list( args )
 	end
 
 	-- 分页
-	tempSql = " limit %d, %d "
+	tempSql = " order by `picture_id` desc limit %d, %d "
 	tempSql = string.format(tempSql, start, pageSize)
 	sql = sql .. tempSql
 	-- ngx.log(ngx.ERR, "++++++++++++ " .. sql)
