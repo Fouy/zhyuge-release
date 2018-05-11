@@ -113,7 +113,7 @@ function _M:list( args )
 	if sort == '2' then 
 		sql = sql .. ' order by score desc '
 	else
-		sql = sql .. ' order by release_date desc '
+		sql = sql .. ' order by `movie_id` desc '
 	end
 
 	-- 分页
