@@ -260,7 +260,7 @@ function _M:ranking(typeKey)
 	local red = redis:new()
 
 	-- local res, err = red:zrevrange('day:rank:'..typeKey, 0, 20, 'withscores')
-	local res, err = red:zrevrange('day:rank:'..typeKey, 0, 20)
+	local res, err = red:zrevrange('day:rank:'..typeKey, 0, 19)
 	if not res then
 	    ngx.log(ngx.ERR, "failed to get day ranking: ", err)
 	    result['dayRank'] = {}
@@ -277,7 +277,7 @@ function _M:ranking(typeKey)
 	end
 	-- ngx.log(ngx.ERR, "Get day ranking: ", cjson.encode(res))
 
-	local res, err = red:zrevrange('week:rank:'..typeKey, 0, 20)
+	local res, err = red:zrevrange('week:rank:'..typeKey, 0, 19)
 	if not res then
 	    ngx.log(ngx.ERR, "failed to get week ranking: ", err)
 	    result['weekRank'] = {}
@@ -293,7 +293,7 @@ function _M:ranking(typeKey)
 	end
 	-- ngx.log(ngx.ERR, "Get week ranking: ", cjson.encode(res))
 
-	local res, err = red:zrevrange('month:rank:'..typeKey, 0, 20)
+	local res, err = red:zrevrange('month:rank:'..typeKey, 0, 19)
 	if not res then
 	    ngx.log(ngx.ERR, "failed to get month ranking: ", err)
 	    result['monthRank'] = {}
