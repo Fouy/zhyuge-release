@@ -90,5 +90,33 @@ function _M:detail()
 	template.render("picture-detail.html", context)
 end
 
+-- 图片详情分页接口（小程序使用）
+function _M:detailList()
+	local args = req.getArgs()
+	local pageNo = args["pageNo"]
+	local pageSize = args["pageSize"]
+	local pictureId = args["pictureId"]
+
+	if pageNo == nil or pageNo == "" then
+		args["pageNo"] = 1
+	end
+	if pageSize == nil or pageSize == "" then
+		args["pageSize"] = 10
+	end
+
+	if pictureId == nil or pictureId == "" then
+		ngx.say(cjson.encode(result:error("ID为空")))
+		return
+	end
+
+	local entity = picture_service:detail(pictureId)
+	local context = {entity = entity}
+
+	-- 增加下载链接
+	context['list'] = picture_url_service:list(args)
+
+	ngx.say(cjson.encode(result:success("查询成功", context)))
+end
+
 
 return _M
