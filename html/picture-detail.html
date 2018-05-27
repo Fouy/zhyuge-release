@@ -57,8 +57,12 @@
 
 					{% if table.getn(list) > 0 then %}
 						{% for i, v in ipairs(list) do %}
-						<div class="ul"></div>
-						<img src="{* v.url *}" style="width: 145%" />
+							<div class="ul"></div>
+							{% if string.find(v.url, "meizitu.net") == nil then %}
+							<img src="{* v.url *}" style="width: 145%" />
+							{% else %}
+							<img src="/proxy/picture?imgUrl={* v.url *}" style="width: 145%" />
+							{% end %}
 						{% end %}
 					{% end %}
 					</div>
