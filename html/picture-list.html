@@ -20,12 +20,18 @@
 <link rel="stylesheet" href="/css/list.css">
 <script src="/js/jquery.tmpl.min.js"></script>
 
+ {-raw-}
 <script id="mv_1" type="text/x-jquery-tmpl">
 	<li id="${picture_id}" class="list-item">
 		<ul class="">
 			<li class="poster">
 				<a href="/picture/detail?pictureId=${picture_id}" class="ticket-btn" target="_blank">
-					<img src="${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
+					{{if proxy == 'true'}}
+						<img src="${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
+			        {{else}}
+			        	<img src="/proxy/picture?imgUrl=${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
+			        {{/if}}
+
 				</a>
 				<span class="right-cornor-tag">${create_time}</span>
 			</li>
@@ -35,6 +41,7 @@
 		</ul>
 	</li>
 </script>
+{-raw-}
 
 <script>
 // 加载更多
@@ -46,6 +53,13 @@ function load_data(){
 		$("#more_btn").html("加载中...");
 		var data = result.data;
 		for (i = 0; i < data.length; i++) {
+			var proxy = data[i].logo_url.indexOf('meizitu.net')
+			if (proxy && proxy >= 0) {
+				data[i].proxy = true;
+			} else {
+				data[i].proxy = false;
+			}
+
 			$("#mv_1").tmpl(data[i]).appendTo('#latest');
 		}
 		if (data.length < 20 || pn > 500) {
