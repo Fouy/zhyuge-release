@@ -1,0 +1,36 @@
+<div class="aside">
+	<!-- 网站公告 -->
+	<div id="notice">
+		<div class="hd">
+			<h2>网站公告</h2>
+		</div>
+		<div class="bd">
+			无弹窗、无广告。<br> 希望大家推荐「章鱼哥美女」给喜欢电影的朋友:)<br>
+			欢迎发送邮件至zhyuge1@yandex.com，一起讨论交流。 <br>
+			<br>
+		</div>
+	</div>
+	<!-- 猜你喜欢 -->
+	<div id="cinemas-section">
+		<div class="hd">
+			<h2>
+				猜你喜欢<a href="javascript:rand_pics();" class="more">换一换»</a>
+			</h2>
+		</div>
+		<div class="bd">
+			<div class="tab-mod on">
+				<ul class="cinema-items" id="rand_pics">
+					{% for i, v in ipairs(likeList) do %}
+					<li class="cinema-item">
+						<p style="font-size: 13px; margin: 5px 0">
+							<a target="_blank" href="/picture/detail?pictureId={* v.picture_id *}">{* v.name *}
+							</a>
+						</p>
+					</li>
+					{% end %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+</div>

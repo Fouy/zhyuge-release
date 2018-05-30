@@ -93,4 +93,23 @@ function _M:detail( pictureId )
 	return entity
 end
 
+-- 猜你喜欢
+function _M:like()
+	local param = {pageSize=10}
+	
+	local count = self:count(param)
+	local pageNo = 1
+	if count % 10 == 0 then
+		pageNo = count / 10
+	else
+		pageNo = count / 10 + 1
+	end
+
+	math.randomseed(os.time())
+	param['pageNo'] = math.random(1, pageNo)
+
+	local list = self:list(param)
+	return list
+end
+
 return _M

@@ -43,6 +43,17 @@
 </script>
 {-raw-}
 
+<!-- 猜你喜欢模板 -->
+<script id="rand_items" type="text/x-jquery-tmpl">
+	<li class="cinema-item">
+		<p style="font-size:13px; margin:5px 0">
+			<a href="/picture/detail?pictureId=${picture_id}" target="_blank">
+			${name}
+			</a>
+		</p>
+	</li>
+</script>
+
 <script>
 // 加载更多
 var pn = 1;
@@ -86,6 +97,17 @@ $(document).ready(function(){
 	load_data();
 });
 
+// 猜你喜欢（随机）
+function rand_pics(){
+	$.get("/picture/like", function(result, status){
+		var data = result.data;
+		$('#rand_pics').empty();
+		for (i = 0; i < data.length; i++) {
+			$("#rand_items").tmpl(data[i]).appendTo('#rand_pics');
+		}
+	}, 'json');
+}
+
 </script>
 
 	<!-- Google广告 -->
@@ -127,6 +149,8 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
+
+				{(picture-aside.html)}
 
 			</div>
 		</div>
