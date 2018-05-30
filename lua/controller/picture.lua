@@ -31,7 +31,7 @@ function _M:repertory()
 	context['typeList'] = picture_type_service:top10()
 	context['args'] = args
 	-- 增加猜你喜欢
-	context["likeList"] = picture_service:like()
+	context["likeList"] = picture_service:like(10)
 
 	-- ngx.log(ngx.ERR, "+++++++++++++: ", cjson.encode(context))
 
@@ -40,7 +40,7 @@ end
 
 -- 猜你喜欢接口（主页）
 function _M:like()
-	local list = picture_service:like()
+	local list = picture_service:like(10)
 	ngx.say(cjson.encode(result:success("查询成功", list)))
 end
 
@@ -92,6 +92,8 @@ function _M:detail()
 	-- 增加热搜关键词
 	context["searchList"] = hot_search_service:list()
 	context['args'] = args
+	-- 增加猜你喜欢
+	context["likeList"] = picture_service:like(5)
 
 	-- ngx.log(ngx.ERR, "+++++++++++++: ", cjson.encode(count))
 

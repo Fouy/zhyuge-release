@@ -93,16 +93,16 @@ function _M:detail( pictureId )
 	return entity
 end
 
--- 猜你喜欢
-function _M:like()
-	local param = {pageSize=10}
+-- 猜你喜欢 number 图片个数
+function _M:like(number)
+	local param = {pageSize=number}
 	
 	local count = self:count(param)
 	local pageNo = 1
-	if count % 10 == 0 then
-		pageNo = count / 10
+	if count % number == 0 then
+		pageNo = count / number
 	else
-		pageNo = count / 10 + 1
+		pageNo = count / number + 1
 	end
 
 	math.randomseed(os.time())

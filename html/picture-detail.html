@@ -11,6 +11,7 @@
 <meta name="description" content="章鱼哥图片提供最新的美女图片浏览,无论您喜欢哪种类型,章鱼哥都会定期给你推荐哦。">
 <link rel="apple-touch-icon" href="/img/favicon.png">
 <link href="/css/main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/detail.css">
 
 <script src="/js/jquery.min.js"></script>
 <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
@@ -91,6 +92,26 @@
 						
 					{% end %}
 					</div>
+
+					<div id="recommendations" class="">
+						<h2>猜你喜欢</h2>
+						<div class="recommendations-bd">
+							{% for i, v in ipairs(likeList) do %}
+							<dl class="">
+								<dt>
+									<a href="/picture/detail?pictureId={* v.picture_id *}"> 
+										<img src="/proxy/picture?imgUrl={* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
+									</a>
+								</dt>
+								<dd>
+									<a href="/picture/detail?pictureId={* v.picture_id *}" class="">{* v.name *}</a>
+								</dd>
+							</dl>
+							{% end %}
+						</div>
+					</div>
+					<br>
+
 				</div>
 
 				<div class="aside"></div>
