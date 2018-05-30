@@ -93,7 +93,7 @@ function _M:detail()
 	context["searchList"] = hot_search_service:list()
 	context['args'] = args
 	-- 增加猜你喜欢
-	context["likeList"] = picture_service:like(7)
+	context["likeList"] = picture_service:like(14)
 
 	-- ngx.log(ngx.ERR, "+++++++++++++: ", cjson.encode(count))
 
