@@ -54,21 +54,21 @@
 				<div class="article">
 
 					<div class="">
-					<h2 style="text-align: center; width: 145%">{* entity.name *}</h2>
+					<h2 style="text-align: center; width: 155%">{* entity.name *}</h2>
 
 					{% if table.getn(list) > 0 then %}
 						{% for i, v in ipairs(list) do %}
 							<div class="ul"></div>
 							{% if string.find(v.url, "meizitu.net") == nil then %}
-							<img src="{* v.url *}" style="width: 145%" />
+							<img src="{* v.url *}" style="width: 155%" />
 							{% else %}
-							<img src="/proxy/picture?imgUrl={* v.url *}" style="width: 145%" />
+							<img src="/proxy/picture?imgUrl={* v.url *}" style="width: 155%" />
 							{% end %}
 						{% end %}
 					{% end %}
 					</div>
 
-					<div class="paginator">
+					<div class="paginator" style="width: 155%">
 					{% if page then %}
 						{% if page['prev'] then %}
 							<span class="prev"> 
@@ -93,7 +93,7 @@
 					{% end %}
 					</div>
 
-					<div id="recommendations" class="">
+					<div id="recommendations" class="" style="width: 155%">
 						<h2>猜你喜欢</h2>
 						<div class="recommendations-bd">
 							{% for i, v in ipairs(likeList) do %}
