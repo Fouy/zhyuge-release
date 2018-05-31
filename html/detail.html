@@ -174,7 +174,26 @@
 							{% end %}
 						</div>
 					</div>
+
+					<div id="recommendations" class="">
+						<h2>性感美女</h2>
+						<div class="recommendations-bd">
+							{% for i, v in ipairs(pictureList) do %}
+							<dl class="">
+								<dt>
+									<a href="/picture/detail?pictureId={* v.picture_id *}" target="_blank"> 
+										<img src="/proxy/picture?imgUrl={* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
+									</a>
+								</dt>
+								<dd>
+									<a href="/picture/detail?pictureId={* v.picture_id *}" class="">{* v.name *}</a>
+								</dd>
+							</dl>
+							{% end %}
+						</div>
+					</div>
 					<br>
+
 				</div>
 
 

@@ -10,6 +10,7 @@ local download_url_service = require "service.download_url_service"
 local template = require("resty.template")
 local configCache = ngx.shared.configCache;
 local redis = require "libs.redis_iresty"
+local picture_service = require "service.picture_service"
 
 local _M = {}
 
@@ -259,6 +260,8 @@ function _M:detail()
 	context['urlList'] = download_url_service:list(movieId)
 	-- 增加猜你喜欢
 	context['likeList'] = movie_service:like(entity['type'])
+	-- 增加性感美女
+	context['pictureList'] = picture_service:like(5)
 
 	template.render("detail.html", context)
 end
