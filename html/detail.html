@@ -181,9 +181,15 @@
 							{% for i, v in ipairs(pictureList) do %}
 							<dl class="">
 								<dt>
-									<a href="/picture/detail?pictureId={* v.picture_id *}" target="_blank"> 
-										<img src="/proxy/picture?imgUrl={* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
-									</a>
+									{% if string.find(v.logo_url, "meizitu") then %}
+										<a href="/picture/detail?pictureId={* v.picture_id *}"> 
+											<img src="/proxy/picture?imgUrl={* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
+										</a>
+									{% else %}
+										<a href="/picture/detail?pictureId={* v.picture_id *}"> 
+											<img src="{* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
+										</a>
+									{% end %}
 								</dt>
 								<dd>
 									<a href="/picture/detail?pictureId={* v.picture_id *}" class="">{* v.name *}</a>

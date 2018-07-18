@@ -27,9 +27,9 @@
 			<li class="poster">
 				<a href="/picture/detail?pictureId=${picture_id}" class="ticket-btn" target="_blank">
 					{{if proxy == 'true'}}
-						<img src="${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
+						<img src="/proxy/picture?imgUrl=${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
 			        {{else}}
-			        	<img src="/proxy/picture?imgUrl=${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
+						<img src="${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
 			        {{/if}}
 
 				</a>
