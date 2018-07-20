@@ -59,10 +59,12 @@
 					{% if table.getn(list) > 0 then %}
 						{% for i, v in ipairs(list) do %}
 							<div class="ul"></div>
-							{% if string.find(v.url, "meizitu.net") == nil then %}
-							<img src="{* v.url *}" style="width: 155%" />
-							{% else %}
+							{% if string.find(v.url, "meizitu.net") then %}
 							<img src="/proxy/picture?imgUrl={* v.url *}" style="width: 155%" />
+							{% elseif string.find(v.url, "mtl.ttsqgs.com") then %}
+							<img src="/proxy/meitulu?imgUrl={* v.url *}&refer={* picture.station_url *}" style="width: 155%" />
+							{% else %}
+							<img src="{* v.url *}" style="width: 155%" />
 							{% end %}
 						{% end %}
 					{% end %}
@@ -102,6 +104,10 @@
 									{% if string.find(v.logo_url, "meizitu") then %}
 										<a href="/picture/detail?pictureId={* v.picture_id *}"> 
 											<img src="/proxy/picture?imgUrl={* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
+										</a>
+									{% elseif string.find(v.logo_url, "mtl.ttsqgs.com") then %}
+										<a href="/picture/detail?pictureId={* v.picture_id *}"> 
+											<img src="/proxy/meitulu?imgUrl={* v.logo_url *}&refer=https://www.meitulu.com/" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
 										</a>
 									{% else %}
 										<a href="/picture/detail?pictureId={* v.picture_id *}"> 

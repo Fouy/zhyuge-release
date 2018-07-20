@@ -26,8 +26,10 @@
 		<ul class="">
 			<li class="poster">
 				<a href="/picture/detail?pictureId=${picture_id}" class="ticket-btn" target="_blank">
-					{{if proxy == 'true'}}
+					{{if proxy == 'meizitu'}}
 						<img src="/proxy/picture?imgUrl=${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
+			        {{else proxy == 'meitulu'}}
+			        	<img src="/proxy/meitulu?imgUrl=${logo_url}&refer=https://www.meitulu.com/" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
 			        {{else}}
 						<img src="${logo_url}" alt="${name}" rel="nofollow" onerror="this.src='/img/img-err.png';">
 			        {{/if}}
@@ -66,9 +68,14 @@ function load_data(){
 		for (i = 0; i < data.length; i++) {
 			var proxy = data[i].logo_url.indexOf('meizitu.net')
 			if (proxy && proxy >= 0) {
-				data[i].proxy = true;
+				data[i].proxy = 'meizitu';
 			} else {
-				data[i].proxy = false;
+				proxy = data[i].logo_url.indexOf('mtl.ttsqgs.com')
+				if (proxy && proxy >= 0) {
+					data[i].proxy = 'meitulu';
+				} else {
+					data[i].proxy = 'common';
+				}
 			}
 
 			$("#mv_1").tmpl(data[i]).appendTo('#latest');

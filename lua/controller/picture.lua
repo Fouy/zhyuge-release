@@ -94,6 +94,8 @@ function _M:detail()
 	context['args'] = args
 	-- 增加猜你喜欢
 	context["likeList"] = picture_service:like(14)
+	-- 增加图片信息
+	context["picture"] = picture_service:detail(pictureId)
 
 	-- ngx.log(ngx.ERR, "+++++++++++++: ", cjson.encode(count))
 

@@ -34,6 +34,7 @@ function _M:http_request_with_dns( url, param )
     local httpc = http.new()
     local temp_url = ngx.re.gsub(url, "//"..domain.."/", string.format("//%s/", domain_ip))
 
+    param.ssl_verify = false
     local res, err = httpc:request_uri(temp_url, param)
     if err then
         return {status=ngx.HTTP_SERVICE_UNAVAILABLE}
