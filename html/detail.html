@@ -185,6 +185,10 @@
 										<a href="/picture/detail?pictureId={* v.picture_id *}"> 
 											<img src="/proxy/picture?imgUrl={* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
 										</a>
+									{% elseif string.find(v.logo_url, "mtl.ttsqgs.com") then %}
+										<a href="/picture/detail?pictureId={* v.picture_id *}"> 
+											<img src="/proxy/meitulu?imgUrl={* v.logo_url *}&refer=https://www.meitulu.com/" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
+										</a>
 									{% else %}
 										<a href="/picture/detail?pictureId={* v.picture_id *}"> 
 											<img src="{* v.logo_url *}" alt="{* v.name *}" class="" onerror="this.src='/img/img-err.png';" style="width: 115px;">
