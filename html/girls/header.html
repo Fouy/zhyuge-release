@@ -1,0 +1,59 @@
+<header class="header">
+	<div class="container">
+		<h1 class="logo">
+			<a href="/" title="章鱼哥美女">
+				<img src="/img/logo.png"><span>章鱼哥美女</span><i class="light"></i>
+			</a>
+		</h1>		
+		<div class="sitenav">
+			<ul>
+				<li id="menu-item-28389" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-28389">
+					<a href="/">首页</a>
+				</li>
+
+				<li id="menu-item-28403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children  menu-item-28403">
+					<a href="/girls/index">美女图片</a>
+					<ul class="sub-menu">
+
+						{% for i, v in ipairs(typeList) do %}
+						<li id="menu-item-{* v['type_id'] *}" class="menu-item menu-item-type-taxonomy {% if tonumber(args['type']) == v['type_id'] then %} current-menu-item {% end %} menu-item-object-category  menu-item-{* v['type_id'] *}">
+							<a href="/girls/index?type={* v['type_id'] *}">{* v.name *}</a>
+						</li>
+						{% end %}
+
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<span class="sitenav-on"><i class="fa"></i></span>
+		<span class="sitenav-mask"></span>
+		<div class="accounts">
+			<a class="account-weixin" href="javascript:;">
+				<i class="fa"></i>
+				<div class="account-popover">
+					<div class="account-popover-content">
+						<img src="./女神吧—分享你的女神吧！ - 女神吧_files/qrcode_for_gh_3524c94e9783_430.jpg">
+					</div>
+				</div>
+			</a>
+			<a class="account-weibo" target="_blank" href="http://image.zhyuge.com/" tipsy="" original-title="关注新浪微博">
+				<i class="fa"></i>
+			</a>				
+			<!-- <a class="account-tqq" target="_blank" href="http://image.zhyuge.com/" tipsy="" original-title="关注腾讯微博">
+				<i class="fa"></i>
+			</a> -->			
+			<a class="account-qzone" target="_blank" href="http://image.zhyuge.com/" tipsy="" original-title="关注QQ空间">
+				<i class="fa"></i>
+			</a>			
+		</div>
+							
+		<span class="searchstart-on"><i class="fa"></i></span>
+		<span class="searchstart-off"><i class="fa"></i></span>
+
+		<form method="post" class="searchform" action="/girls/index">
+			<input type="hidden" name="pageNo" value="1">
+			<button tabindex="3" class="sbtn" type="submit"><i class="fa"></i></button>
+			<input tabindex="2" class="sinput" name="keyword" type="text" placeholder="输入关键字" value="{* args.keyword *}">
+		</form>
+	</div>
+</header>

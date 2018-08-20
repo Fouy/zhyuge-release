@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="cache-control" content="no-siteapp">
+<title>{* entity.name *} - 章鱼哥美女</title>
+<link rel="stylesheet" id="main-css" href="/girls/css/style.css" type="text/css" media="all">
+<script type="text/javascript" src="/girls/js/jquery.js"></script>
+<meta name="keywords" content="章鱼哥,章鱼哥美女,尤果网,依依社区,美女网,清纯图片,MM私房照,美女图片,性感美女,制服诱惑,唯美图片,火辣,美女,网友自拍">
+<meta name="description" content="章鱼哥图片提供最新的美女图片浏览,本站每天更新,无论您喜欢哪种类型,章鱼哥都会定期给你推荐哦。">
+<!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
+</head>
+<body class="archive category category-siwa category-11" style="">
+
+
+{(girls/header.html)}
+
+
+<div class="focusbox">
+	<div class="container">
+		<h1 class="focusbox-title">{* entity.name *}</h1>
+	</div>
+</div>
+
+
+<section class="container">
+	<!-- <div style="width:100%;height:90px;overflow:hidden;margin:auto;border:1px #FD77B2 dashed;text-align:center;margin-top: 10px;line-height: 90px;">
+		广告id3-列表页100%x90
+	</div> -->
+
+	<article class="article-content" style="padding-top: 15px;">
+		<p>
+			{% if table.getn(list) > 0 then %}
+				{% for i, v in ipairs(list) do %}
+					{% if string.find(v.url, "meizitu.net") then %}
+					<img class="aligncenter" src="/proxy/picture?imgUrl={* v.url *}" onload="this.src='/girls/img/loading.gif" onerror="this.src='/img/img-err.png';" alt="{* entity.name *}" /><br/>
+					{% elseif string.find(v.url, "mtl.ttsqgs.com") then %}
+					<img class="aligncenter" src="/proxy/meitulu?imgUrl={* v.url *}&refer={* picture.station_url *}" onload="this.src='/girls/img/loading.gif" onerror="this.src='/img/img-err.png';" alt="{* entity.name *}" /><br/>
+					{% else %}
+					<img class="aligncenter" src="{* v.url *}" onload="this.src='/girls/img/loading.gif" onerror="this.src='/img/img-err.png';" alt="{* entity.name *}" /><br/>
+					{% end %}
+				{% end %}
+			{% end %}
+		</p>
+	</article>
+
+
+	<div class="pagination pagination-multi">
+		<ul>
+			{% if page then %}
+				{% if page['prev'] then %}
+					<li><a href="/girls/detail?pageNo={* page['prev'] *}&pictureId={* args.pictureId *}">上一页</a></li>
+				{% end %}
+
+				{% for i, v in ipairs(page['pageList']) do %}
+					{% if v == tonumber(page['current']) then %}
+					<li class="active"><span>{* v *}</span></li>
+					{% else %}
+					<li><a href="/girls/detail?pageNo={* v *}&pictureId={* args.pictureId *}">{* v *}</a></li>
+					{% end %}
+				{% end %}
+				
+				{% if page['next'] then %}
+					<li><a href="/girls/detail?pageNo={* page['next'] *}&pictureId={* args.pictureId *}">下一页</a></li>
+				{% end %}
+				
+			{% end %}
+		</ul>
+	</div>
+
+
+	<!-- <div style="width:100%;height:90px;overflow:hidden;margin:auto;border:1px #FD77B2 dashed;text-align:center;margin-top: 10px;line-height: 90px;">	
+		广告id4-列表页100%x90
+	</div> -->
+
+
+	<div class="article-actions clearfix">
+		<div class="shares">
+	        <strong>分享到：</strong>
+	        <a href="javascript:;" data-url="/meinv/qiaotun/1013.html" class="share-weixin" title="分享到微信">
+	        	<i class="fa"></i>
+	        	<span class="share-popover">
+	        		<span class="share-popover-inner" id="weixin-qrcode">
+	        			<canvas width="80" height="80"></canvas>
+	        		</span>
+	        	</span>
+	        </a>
+	        <a etap="share" data-share="qzone" class="share-qzone" title="分享到QQ空间"><i class="fa"></i></a>
+	        <a etap="share" data-share="weibo" class="share-tsina" title="分享到新浪微博"><i class="fa"></i></a>
+	        <!-- <a etap="share" data-share="tqq" class="share-tqq" title="分享到腾讯微博"><i class="fa"></i></a> -->
+	        <a etap="share" data-share="qq" class="share-sqq" title="分享到QQ好友"><i class="fa"></i></a>
+	        <a etap="share" data-share="douban" class="share-douban" title="分享到豆瓣网"><i class="fa"></i></a>    
+	    </div>
+    	<a href="javascript:void(0);" onclick="detailFavorite({* entity.picture_id *})" class="action-like actived" >
+    		<i class="fa"></i>赞(<span id="detail-favorite">{* entity.favorite *}</span>)
+    	</a>    
+	</div>
+
+
+	<style>.thumb{width:100%;}</style>
+
+    <div class="postitems">
+        <h3>相关推荐</h3>
+        <ul>
+
+        	{% for i, v in ipairs(likeList) do %}
+			<article class="excerpt excerpt-c5">
+				<a target="_blank" class="thumbnail" href="/girls/detail?pictureId={* v.picture_id *}">
+					{% if string.find(v.logo_url, 'meizitu.net') then %} 
+						<img src="/proxy/picture?imgUrl={* v.logo_url *}" data-src="/proxy/picture?imgUrl={* v.logo_url *}" onerror="this.src='/img/img-err.png';" class="thumb">
+					{% elseif string.find(v.logo_url, 'mtl.ttsqgs.com') then %} 
+						<img src="/proxy/meitulu?imgUrl={* v.logo_url *}&refer=https://www.meitulu.com/" data-src="/proxy/meitulu?imgUrl={* v.logo_url *}&refer=https://www.meitulu.com/" onerror="this.src='/img/img-err.png';" class="thumb">
+					{% else %} 
+						<img src="{* v.logo_url *}" data-src="{* v.logo_url *}" onerror="this.src='/img/img-err.png';" class="thumb">
+					{% end %}
+					
+					<div class="zdy">{* v.number *}P</div>
+					<div class="zoomOverlay"></div>
+				</a>
+				<h2>
+					<a target="_blank" href="/girls/detail?pictureId={* v.picture_id *}">{* v.name *}</a>
+				</h2>
+				<footer>
+					<a href="javascript:void(0);" onclick="favorite({* v.picture_id *})" class="post-like" etap="like">
+						<i class="fa"></i>
+						<span id="favorite-{* v.picture_id *}">{* v.favorite *}</span>
+					</a>
+					<time>{* v.create_time *}</time>
+				</footer>
+			</article>
+			{% end %}
+
+        </ul>
+    </div>
+
+
+	<div class="asst asst-list-footer">
+		友情链接：<a target="_blank" href="http://www.zhyuge.com/">章鱼哥电影</a>
+	</div>
+</section>
+
+
+
+{(girls/footer.html)}
+
+ 
+
+<script>
+	window.TBUI = {
+		uri             : '/wp-content/themes/tob',
+		ajaxpager       : '0',
+		pagenum         : '30',
+		shareimage      : '',
+		shareimagethumb : '1',
+		fullgallery     : '0',
+		fullimage       : '0'
+	}
+</script>
+<script type="text/javascript" src="/girls/js/main.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+
+	});
+
+	// 详情点赞
+	function detailFavorite(pictureId) {
+		var data = {};
+		data.pictureId = pictureId;
+		$.post("/girls/favorite", data, function(result){
+			console.log(result);
+			var favorite = $('#detail-favorite').html();
+			$('#detail-favorite').html(parseInt(favorite)+1);
+		});
+	}
+
+	// 列表点赞
+	function favorite(pictureId) {
+		var data = {};
+		data.pictureId = pictureId;
+		$.post("/girls/favorite", data, function(result){
+			console.log(result);
+			var favorite = $('#favorite-'+pictureId).html();
+			$('#favorite-'+pictureId).html(parseInt(favorite)+1);
+		});
+	}
+</script>
+
+<div class="rollbar">
+	<div class="rollbar-item" etap="to_top"><i class="fa"></i></div>
+</div>
+
+</body>
+</html>
+
+
+

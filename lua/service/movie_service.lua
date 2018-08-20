@@ -13,7 +13,7 @@ local _M = {}
 _M._VERSION="0.1"
 
 
--- 更新文章
+-- 更新电影
 function _M:update( movie_entity )
 	movie_entity['name'] = ngx.quote_sql_str(movie_entity['name'])
 	movie_entity['type_id'] = ngx.quote_sql_str(movie_entity['type_id'])
