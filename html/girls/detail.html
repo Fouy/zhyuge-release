@@ -109,7 +109,7 @@
 
         	{% for i, v in ipairs(likeList) do %}
 			<article class="excerpt excerpt-c5">
-				<a target="_blank" class="thumbnail" href="/girls/detail?pictureId={* v.picture_id *}">
+				<a class="thumbnail" href="/girls/detail?pictureId={* v.picture_id *}">
 					{% if string.find(v.logo_url, 'meizitu.net') then %} 
 						<img src="/proxy/picture?imgUrl={* v.logo_url *}" data-src="/proxy/picture?imgUrl={* v.logo_url *}" onerror="this.src='/img/img-err.png';" class="thumb">
 					{% elseif string.find(v.logo_url, 'mtl.ttsqgs.com') then %} 
@@ -122,7 +122,7 @@
 					<div class="zoomOverlay"></div>
 				</a>
 				<h2>
-					<a target="_blank" href="/girls/detail?pictureId={* v.picture_id *}">{* v.name *}</a>
+					<a href="/girls/detail?pictureId={* v.picture_id *}">{* v.name *}</a>
 				</h2>
 				<footer>
 					<a href="javascript:void(0);" onclick="favorite({* v.picture_id *})" class="post-like" etap="like">
