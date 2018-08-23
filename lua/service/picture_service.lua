@@ -17,6 +17,7 @@ function _M:list( args )
 	local start = (tonumber(args["pageNo"])-1) * pageSize
 	local typeId = args["type"]
 	local keyword = args["keyword"]
+	local promote = args['promote']
 
 	local db = mysql:new()
 	local sql = "select * from picture where 1=1 "
@@ -25,6 +26,12 @@ function _M:list( args )
 	if typeId ~= nil and typeId ~= "" and typeId ~= '-1' then
 		tempSql = " and type_id = %d "
 		tempSql = string.format(tempSql, tonumber(typeId))
+		sql = sql .. tempSql
+	end
+	-- 推荐 promote
+	if promote ~= nil and promote ~= "" then
+		tempSql = " and promote = %d "
+		tempSql = string.format(tempSql, tonumber(promote))
 		sql = sql .. tempSql
 	end
 	-- 关键词
@@ -58,6 +65,7 @@ end
 function _M:count( args )
 	local typeId = args["type"]
 	local keyword = args["keyword"]
+	local promote = args['promote']
 
 	local db = mysql:new()
 	local sql = "select count(1) as count from picture where 1=1 "
@@ -65,6 +73,12 @@ function _M:count( args )
 	if typeId ~= nil and typeId ~= "" and typeId ~= '-1' then
 		tempSql = " and type_id = %d "
 		tempSql = string.format(tempSql, tonumber(typeId))
+		sql = sql .. tempSql
+	end
+	-- 推荐 promote
+	if promote ~= nil and promote ~= "" then
+		tempSql = " and promote = %d "
+		tempSql = string.format(tempSql, tonumber(promote))
 		sql = sql .. tempSql
 	end
 	-- 关键词
@@ -114,6 +128,7 @@ end
 -- 猜你喜欢 number 图片个数
 function _M:like(number)
 	local param = {pageSize=number}
+	param['promote'] = '1'
 	
 	local count = self:count(param)
 	local pageNo = 1
