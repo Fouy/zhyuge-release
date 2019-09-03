@@ -8,6 +8,7 @@ local picture_url_service = require "service.picture_url_service"
 local template = require("resty.template")
 local configCache = ngx.shared.configCache;
 local redis = require "libs.redis_iresty"
+local zpc_service = require "service.zpc_service"
 
 local hot_search_service = require "service.hot_search_service"
 
@@ -88,6 +89,8 @@ function _M:detail()
 	context["picture"] = picture_service:detail(pictureId)
 	-- 获取类型列表
 	context['typeList'] = picture_type_service:top10()
+	-- 获取广告链接
+	context['adUrl'] = zpc_service:randAds()
 
 	-- ngx.log(ngx.ERR, "+++++++++++++: ", cjson.encode(count))
 
